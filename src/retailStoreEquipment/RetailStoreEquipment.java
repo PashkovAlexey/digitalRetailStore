@@ -4,14 +4,6 @@ public class RetailStoreEquipment {
 
     private String retailEquipmentName;
 
-    public String getRetailEquipmentName() {
-        return retailEquipmentName;
-    }
-
-    public void setRetailEquipmentName(String retailEquipmentName) {
-        this.retailEquipmentName = retailEquipmentName;
-    }
-
     public RetailStoreEquipment() {
     }
 
@@ -19,6 +11,13 @@ public class RetailStoreEquipment {
         this.retailEquipmentName = retailEquipmentName;
     }
 
+    public String getRetailEquipmentName() {
+        return retailEquipmentName;
+    }
+
+    public void setRetailEquipmentName(String retailEquipmentName) {
+        this.retailEquipmentName = retailEquipmentName;
+    }
 
 
 }

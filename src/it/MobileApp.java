@@ -1,43 +1,11 @@
 package Digital.Retail.Store.it;
 
-public class MobileApp extends IT {
+public class MobileApp extends Digital.Retail.Store.it.IT {
 
     private String mobAppTypeOfOS;
     private String mobAppDeviceInfo;
     private String mobAppSystemRequirements;
     private String modAppCustomerId;
-
-    public String getMobAppTypeOfOS() {
-        return mobAppTypeOfOS;
-    }
-
-    public void setMobAppTypeOfOS(String mobAppTypeOfOS) {
-        this.mobAppTypeOfOS = mobAppTypeOfOS;
-    }
-
-    public String getMobAppDeviceInfo() {
-        return mobAppDeviceInfo;
-    }
-
-    public void setMobAppDeviceInfo(String mobAppDeviceInfo) {
-        this.mobAppDeviceInfo = mobAppDeviceInfo;
-    }
-
-    public String getMobAppSystemRequirements() {
-        return mobAppSystemRequirements;
-    }
-
-    public void setMobAppSystemRequirements(String mobAppSystemRequirements) {
-        this.mobAppSystemRequirements = mobAppSystemRequirements;
-    }
-
-    public String getModAppCustomerId() {
-        return modAppCustomerId;
-    }
-
-    public void setModAppCustomerId(String modAppCustomerId) {
-        this.modAppCustomerId = modAppCustomerId;
-    }
 
     public MobileApp() {
     }
@@ -109,6 +77,38 @@ public class MobileApp extends IT {
     }
     public void itSystemUpgrade() {
         System.out.println("Установлено обновление на мобильное приложение на смартфоне у пользователя под номером " + modAppCustomerId);
+    }
+
+    public String getMobAppTypeOfOS() {
+        return mobAppTypeOfOS;
+    }
+
+    public void setMobAppTypeOfOS(String mobAppTypeOfOS) {
+        this.mobAppTypeOfOS = mobAppTypeOfOS;
+    }
+
+    public String getMobAppDeviceInfo() {
+        return mobAppDeviceInfo;
+    }
+
+    public void setMobAppDeviceInfo(String mobAppDeviceInfo) {
+        this.mobAppDeviceInfo = mobAppDeviceInfo;
+    }
+
+    public String getMobAppSystemRequirements() {
+        return mobAppSystemRequirements;
+    }
+
+    public void setMobAppSystemRequirements(String mobAppSystemRequirements) {
+        this.mobAppSystemRequirements = mobAppSystemRequirements;
+    }
+
+    public String getModAppCustomerId() {
+        return modAppCustomerId;
+    }
+
+    public void setModAppCustomerId(String modAppCustomerId) {
+        this.modAppCustomerId = modAppCustomerId;
     }
 
 

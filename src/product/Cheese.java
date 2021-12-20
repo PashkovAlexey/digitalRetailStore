@@ -1,16 +1,8 @@
 package Digital.Retail.Store.Product;
 
-public class Cheese extends DairyProduct {
+public class Cheese extends Digital.Retail.Store.Product.DairyProduct {
 
     private double cheeseWeight;
-
-    public double getCheeseWeight() {
-        return cheeseWeight;
-    }
-
-    public void setCheeseWeight(int cheeseWeight) {
-        this.cheeseWeight = cheeseWeight;
-    }
 
     public Cheese() {
     }
@@ -40,5 +32,12 @@ public class Cheese extends DairyProduct {
         System.out.println("Сыр убран из корзины в мобильном приложении");
     }
 
+    public double getCheeseWeight() {
+        return cheeseWeight;
+    }
+
+    public void setCheeseWeight(int cheeseWeight) {
+        this.cheeseWeight = cheeseWeight;
+    }
 
 }

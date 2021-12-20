@@ -5,22 +5,6 @@ public class IT {
     private String itSystemName;
     private String itSystemPurpose;
 
-    public String getItSystemName() {
-        return itSystemName;
-    }
-
-    public void setItSystemName(String itSystemName) {
-        this.itSystemName = itSystemName;
-    }
-
-    public String getItSystemPurpose() {
-        return itSystemPurpose;
-    }
-
-    public void setItSystemPurpose(String itSystemPurpose) {
-        this.itSystemPurpose = itSystemPurpose;
-    }
-
     public IT() {
     }
 
@@ -37,6 +21,22 @@ public class IT {
 
     public void itSystemUpgrade() {
         System.out.println("Установлено обновление на ИТ систему");
+    }
+
+    public String getItSystemName() {
+        return itSystemName;
+    }
+
+    public void setItSystemName(String itSystemName) {
+        this.itSystemName = itSystemName;
+    }
+
+    public String getItSystemPurpose() {
+        return itSystemPurpose;
+    }
+
+    public void setItSystemPurpose(String itSystemPurpose) {
+        this.itSystemPurpose = itSystemPurpose;
     }
 
 }

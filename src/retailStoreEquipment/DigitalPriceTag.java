@@ -1,55 +1,12 @@
 package Digital.Retail.Store.retailStoreEquipment;
 
-public class DigitalPriceTag extends RetailStoreEquipment {
+public class DigitalPriceTag extends Digital.Retail.Store.retailStoreEquipment.RetailStoreEquipment {
 
     private String tagsScreenColor;
     private double tagsPrice;
     private String tagsProductName;
     private String tagsManufacturerName;
     private String tagsSize;
-
-    public String getTagsScreenColor() {
-        return tagsScreenColor;
-    }
-
-    public void setTagsScreenColor(String tagsScreenColor) {
-        this.tagsScreenColor = tagsScreenColor;
-    }
-
-
-    public double getTagsPrice() {
-        return tagsPrice;
-    }
-
-    public void setTagsPrice(double tagsPrice) {
-        this.tagsPrice = tagsPrice;
-    }
-
-
-    public String getTagsProductName() {
-        return tagsProductName;
-    }
-
-    public void setTagsProductName(String tagsProductName) {
-        this.tagsProductName = tagsProductName;
-    }
-
-
-    public String getTagsManufacturerName() {
-        return tagsManufacturerName;
-    }
-
-    public void setTagsManufacturerName(String tagsManufacturerName) {
-        this.tagsManufacturerName = tagsManufacturerName;
-    }
-
-    public String getTagsSize() {
-        return tagsSize;
-    }
-
-    public void setTagsSize(String tagsSize) {
-        this.tagsSize = tagsSize;
-    }
 
     public DigitalPriceTag() {
     }
@@ -98,5 +55,47 @@ public class DigitalPriceTag extends RetailStoreEquipment {
         System.out.println("Покупатель по имени " + p + " поняла кто изготовитель товара");
     }
 
+    public String getTagsScreenColor() {
+        return tagsScreenColor;
+    }
+
+    public void setTagsScreenColor(String tagsScreenColor) {
+        this.tagsScreenColor = tagsScreenColor;
+    }
+
+
+    public double getTagsPrice() {
+        return tagsPrice;
+    }
+
+    public void setTagsPrice(double tagsPrice) {
+        this.tagsPrice = tagsPrice;
+    }
+
+
+    public String getTagsProductName() {
+        return tagsProductName;
+    }
+
+    public void setTagsProductName(String tagsProductName) {
+        this.tagsProductName = tagsProductName;
+    }
+
+
+    public String getTagsManufacturerName() {
+        return tagsManufacturerName;
+    }
+
+    public void setTagsManufacturerName(String tagsManufacturerName) {
+        this.tagsManufacturerName = tagsManufacturerName;
+    }
+
+    public String getTagsSize() {
+        return tagsSize;
+    }
+
+    public void setTagsSize(String tagsSize) {
+        this.tagsSize = tagsSize;
+    }
 
 }

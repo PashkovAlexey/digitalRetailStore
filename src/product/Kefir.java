@@ -1,16 +1,9 @@
 package Digital.Retail.Store.Product;
 
-public class Kefir extends DairyProduct {
+public class Kefir extends Digital.Retail.Store.Product.DairyProduct {
 
     private double kefirVolume;
 
-    public double getKefirVolume() {
-        return kefirVolume;
-    }
-
-    public void setKefirVolume(double kefirVolume) {
-        this.kefirVolume = kefirVolume;
-    }
 
     public Kefir() {
     }
@@ -39,5 +32,14 @@ public class Kefir extends DairyProduct {
     public void productTakeItFromTheBasket() {
         System.out.println("Кефир убран из корзины в мобильном приложении");
     }
+
+    public double getKefirVolume() {
+        return kefirVolume;
+    }
+
+    public void setKefirVolume(double kefirVolume) {
+        this.kefirVolume = kefirVolume;
+    }
+
 
 }

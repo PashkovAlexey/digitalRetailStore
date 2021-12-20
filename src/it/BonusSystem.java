@@ -1,34 +1,10 @@
 package Digital.Retail.Store.it;
 
-public class BonusSystem extends IT {
+public class BonusSystem extends Digital.Retail.Store.it.IT {
 
     private String bonusEndOfLife;
     private double bonusNumberOfPoints;
     private String bonusCustomerIdInMobApp;
-
-    public String getBonusEndOfLife() {
-        return bonusEndOfLife;
-    }
-
-    public void setBonusEndOfLife(String bonusEndOfLife) {
-        this.bonusEndOfLife = bonusEndOfLife;
-    }
-
-    public double getBonusNumberOfPoints() {
-        return bonusNumberOfPoints;
-    }
-
-    public void setBonusNumberOfPoints(double bonusNumberOfPoints) {
-        this.bonusNumberOfPoints = bonusNumberOfPoints;
-    }
-
-    public String getBonusCustomerIdInMobApp() {
-        return bonusCustomerIdInMobApp;
-    }
-
-    public void setBonusCustomerIdInMobApp(String bonusCustomerIdInMobApp) {
-        this.bonusCustomerIdInMobApp = bonusCustomerIdInMobApp;
-    }
 
     public BonusSystem() {
     }
@@ -74,4 +50,27 @@ public class BonusSystem extends IT {
         System.out.println("Установлено обновление на систему подсчета бонусов");
     }
 
+    public String getBonusEndOfLife() {
+        return bonusEndOfLife;
+    }
+
+    public void setBonusEndOfLife(String bonusEndOfLife) {
+        this.bonusEndOfLife = bonusEndOfLife;
+    }
+
+    public double getBonusNumberOfPoints() {
+        return bonusNumberOfPoints;
+    }
+
+    public void setBonusNumberOfPoints(double bonusNumberOfPoints) {
+        this.bonusNumberOfPoints = bonusNumberOfPoints;
+    }
+
+    public String getBonusCustomerIdInMobApp() {
+        return bonusCustomerIdInMobApp;
+    }
+
+    public void setBonusCustomerIdInMobApp(String bonusCustomerIdInMobApp) {
+        this.bonusCustomerIdInMobApp = bonusCustomerIdInMobApp;
+    }
 }

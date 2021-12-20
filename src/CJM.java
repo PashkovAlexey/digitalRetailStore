@@ -216,7 +216,7 @@ public class CJM {
         System.out.println(bonus.getBonusNumberOfPoints() + " - столько бонусных баллов осталось в мобильном приложении покупателя");
 
         System.out.println(" ");
-        System.out.println("Этот код на GitHub по ссылке https://github.com/PashkovAlexey/DigitalRetail.git");
+        System.out.println("Этот код на GitHub по ссылке https://github.com/PashkovAlexey/digitalRetailStore.git");
 
         /* что еще можно улучшить в коде
         1. добавить больше передаваемых параметров в вызываемые методы

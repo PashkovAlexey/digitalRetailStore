@@ -7,6 +7,50 @@ public class Product {
     private String productDateOfProduction;
     private String productBarCode;
 
+    public Product() {
+    }
+
+    public Product(double productPrice) {
+        this.productPrice = productPrice;
+    }
+
+    public Product(double productPrice, String productDateOfProduction) {
+        this.productPrice = productPrice;
+        this.productDateOfProduction = productDateOfProduction;
+    }
+
+    public Product(double productPrice, String productDateOfProduction, String productBarCode) {
+        this.productPrice = productPrice;
+        this.productDateOfProduction = productDateOfProduction;
+        this.productBarCode = productBarCode;
+    }
+
+    public Product(String productName, double productPrice, String productDateOfProduction, String productBarCode) {
+        this.productName = productName;
+        this.productPrice = productPrice;
+        this.productDateOfProduction = productDateOfProduction;
+        this.productBarCode = productBarCode;
+    }
+
+    public void productPutItOnTheShelf() {
+        System.out.println("Продукт положили на полку");
+    }
+
+    public void productTakeItFromTheShelf() {
+        System.out.println("Продукт взял с полки");
+    }
+
+    public void productScanBarCode() {
+        System.out.println("У продукта просканирован штрихкод");
+    }
+
+    public void productPutItInTheBasket() {
+        System.out.println("Продукт положили в корзину в мобильном приложении");
+    }
+    public void productTakeItFromTheBasket() {
+        System.out.println("Продукт убран из корзины в мобильном приложении");
+    }
+
     public String getProductName() {
         return productName;
     }
@@ -37,52 +81,6 @@ public class Product {
 
     public void setProductBarCode(String productBarCode) {
         this.productBarCode = productBarCode;
-    }
-
-    public Product() {
-    }
-
-    public Product(double productPrice) {
-        this.productPrice = productPrice;
-    }
-
-    public Product(double productPrice, String productDateOfProduction) {
-        this.productPrice = productPrice;
-        this.productDateOfProduction = productDateOfProduction;
-    }
-
-    public Product(double productPrice, String productDateOfProduction, String productBarCode) {
-        this.productPrice = productPrice;
-        this.productDateOfProduction = productDateOfProduction;
-        this.productBarCode = productBarCode;
-    }
-
-    public Product(String productName, double productPrice, String productDateOfProduction, String productBarCode) {
-        this.productName = productName;
-        this.productPrice = productPrice;
-        this.productDateOfProduction = productDateOfProduction;
-        this.productBarCode = productBarCode;
-    }
-
-
-
-    public void productPutItOnTheShelf() {
-        System.out.println("Продукт положили на полку");
-    }
-
-    public void productTakeItFromTheShelf() {
-        System.out.println("Продукт взял с полки");
-    }
-
-    public void productScanBarCode() {
-        System.out.println("У продукта просканирован штрихкод");
-    }
-
-    public void productPutItInTheBasket() {
-        System.out.println("Продукт положили в корзину в мобильном приложении");
-    }
-    public void productTakeItFromTheBasket() {
-        System.out.println("Продукт убран из корзины в мобильном приложении");
     }
 
 }

@@ -1,6 +1,6 @@
 package Digital.Retail.Store.Product;
 
-public class DairyProduct extends Product {
+public class DairyProduct extends Digital.Retail.Store.Product.Product {
 
     private double dairyFats;
     private int dairyCalorie;
@@ -10,62 +10,6 @@ public class DairyProduct extends Product {
     private double dairyCarbohydrates;
     private double dairyProteins;
 
-
-    public double getDairyFats() {
-        return dairyFats;
-    }
-
-    public void setDairyFats(double dairyFats) {
-        this.dairyFats = dairyFats;
-    }
-
-    public int getDairyCalorie() {
-        return dairyCalorie;
-    }
-
-    public void setDairyCalorie(int dairyCalorie) {
-        this.dairyCalorie = dairyCalorie;
-    }
-
-    public String getDairyKindOfPackage() {
-        return dairyKindOfPackage;
-    }
-
-    public void setDairyKindOfPackage(String dairyKindOfPackage) {
-        this.dairyKindOfPackage = dairyKindOfPackage;
-    }
-
-    public String getDairyDateEndOfLife() {
-        return dairyDateEndOfLife;
-    }
-
-    public void setDairyDateEndOfLife(String dairyDateEndOfLife) {
-        this.dairyDateEndOfLife = dairyDateEndOfLife;
-    }
-
-    public double getDairyWater() {
-        return dairyWater;
-    }
-
-    public void setDairyWater(double dairyWater) {
-        this.dairyWater = dairyWater;
-    }
-
-    public double getDairyCarbohydrates() {
-        return dairyCarbohydrates;
-    }
-
-    public void setDairyCarbohydrates(double dairyCarbohydrates) {
-        this.dairyCarbohydrates = dairyCarbohydrates;
-    }
-
-    public double getDairyProteins() {
-        return dairyProteins;
-    }
-
-    public void setDairyProteins(double dairyProteins) {
-        this.dairyProteins = dairyProteins;
-    }
 
     public DairyProduct() {
     }
@@ -140,6 +84,62 @@ public class DairyProduct extends Product {
     }
     public void productTakeItFromTheBasket() {
         System.out.println("Молочный продукт убран из корзины в мобильном приложении");
+    }
+
+    public double getDairyFats() {
+        return dairyFats;
+    }
+
+    public void setDairyFats(double dairyFats) {
+        this.dairyFats = dairyFats;
+    }
+
+    public int getDairyCalorie() {
+        return dairyCalorie;
+    }
+
+    public void setDairyCalorie(int dairyCalorie) {
+        this.dairyCalorie = dairyCalorie;
+    }
+
+    public String getDairyKindOfPackage() {
+        return dairyKindOfPackage;
+    }
+
+    public void setDairyKindOfPackage(String dairyKindOfPackage) {
+        this.dairyKindOfPackage = dairyKindOfPackage;
+    }
+
+    public String getDairyDateEndOfLife() {
+        return dairyDateEndOfLife;
+    }
+
+    public void setDairyDateEndOfLife(String dairyDateEndOfLife) {
+        this.dairyDateEndOfLife = dairyDateEndOfLife;
+    }
+
+    public double getDairyWater() {
+        return dairyWater;
+    }
+
+    public void setDairyWater(double dairyWater) {
+        this.dairyWater = dairyWater;
+    }
+
+    public double getDairyCarbohydrates() {
+        return dairyCarbohydrates;
+    }
+
+    public void setDairyCarbohydrates(double dairyCarbohydrates) {
+        this.dairyCarbohydrates = dairyCarbohydrates;
+    }
+
+    public double getDairyProteins() {
+        return dairyProteins;
+    }
+
+    public void setDairyProteins(double dairyProteins) {
+        this.dairyProteins = dairyProteins;
     }
 
 
