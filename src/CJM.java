@@ -8,6 +8,7 @@ import Digital.Retail.Store.Product.Cheese;
 import Digital.Retail.Store.Product.Kefir;
 import Digital.Retail.Store.Product.Product;
 import Digital.Retail.Store.retailStoreEquipment.DigitalPriceTag;
+import another.DigitalCheque;
 
 import java.util.Scanner;
 
@@ -180,11 +181,13 @@ public class CJM {
                 RevenueWoBonuses = pyaterochka.getStoreRevenue();
             }
             System.out.println("Введите сколько процентов от покупки можно засчитать покупателю баллами, например, 2% вводите как 0,02 через запятую");
+
             double h = scanner.nextDouble();
             double xx = (priceTagKefir.getTagsPrice() + priceTagCheese.getTagsPrice())*h;
             bonusNumberOfPoints = bonusNumberOfPoints + xx;
             bonus.bonusAddPoints(h, xx);
-
+            mobAppHuman.mobAppGiveCheque(pyaterochka.getStoreDescription(), i, priceTagKefir.getTagsPrice(), priceTagCheese.getTagsPrice(), bonusPayment, xx, tagsProductNameKefir, tagsProductNameCheese);
+            System.out.println(" ");
 
 
         }

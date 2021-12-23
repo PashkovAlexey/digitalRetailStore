@@ -1,5 +1,7 @@
 package Digital.Retail.Store.it;
 
+import another.DigitalCheque;
+
 public class MobileApp extends Digital.Retail.Store.it.IT {
 
     private String mobAppTypeOfOS;
@@ -35,6 +37,26 @@ public class MobileApp extends Digital.Retail.Store.it.IT {
     }
 
 
+
+    public void mobAppGiveCheque (String name, int k, double kefirPrice, double cheesePrice, double bonusPaid, double bonusAdded, String kefirName, String cheeseName) {
+
+        String chequeDateAndTime = "18:20 2" + k + ".12.2021 года";
+        double chequeInfoPurchaseSumm = kefirPrice + cheesePrice;
+        DigitalCheque chequeForClient = new DigitalCheque (name,"https://5ka.ru/", "8-800-555-55-05", chequeDateAndTime, "г.Москва, ул.Центральная, д.33", chequeInfoPurchaseSumm, bonusPaid, bonusAdded);
+        System.out.println("Электронный чек");
+        System.out.println("Магазин " + chequeForClient.getChequeStoreName());
+        System.out.println(chequeForClient.getChequeInternetAddress());
+        System.out.println(chequeForClient.getChequeTelephoneNumber());
+        System.out.println(chequeForClient.getChequeInfoStoreAddress());
+        System.out.println(chequeForClient.getChequeDateAndTime());
+        System.out.println(kefirName + " " + kefirPrice + " рублей");
+        System.out.println(cheeseName + " " + cheesePrice + " рублей");
+        chequeForClient.chequePrint();
+
+
+
+
+    }
 
     public void mobAppDownload() {
         System.out.println("Приложение скачано на смартфон с операционной системой " + mobAppTypeOfOS);
