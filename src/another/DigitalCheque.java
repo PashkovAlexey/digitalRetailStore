@@ -1,5 +1,7 @@
 package another;
 
+import java.text.DecimalFormat;
+
 public class DigitalCheque {
 
     private String chequeStoreName;
@@ -27,10 +29,11 @@ public class DigitalCheque {
     }
 
     public void chequePrint(){
-        System.out.println("Сумма покупки " + chequeInfoPurchaseSumm + " рублей");
+        DecimalFormat df = new DecimalFormat("#.00");
+        System.out.println("Сумма покупки " + df.format(chequeInfoPurchaseSumm) + " рублей");
         System.out.println("НДС 20%");
-        System.out.println(chequeInfoBonusPaid + " баллов потрачено");
-        System.out.println(chequeInfoBonusAdded + " баллов начислено");
+        System.out.println(df.format(chequeInfoBonusPaid) + " баллов потрачено");
+        System.out.println(df.format(chequeInfoBonusAdded) + " баллов начислено");
     }
 
 

@@ -10,6 +10,7 @@ import Digital.Retail.Store.Product.Product;
 import Digital.Retail.Store.retailStoreEquipment.DigitalPriceTag;
 import another.DigitalCheque;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class CJM {
@@ -196,27 +197,28 @@ public class CJM {
         System.out.println(" ");
 
         // здесь закрытие двери и далее
-        System.out.println("Количество покупателей за неделю " + pyaterochka.getStoreCustomerNumber() + " штук");
-        System.out.println("Выручка магазина за неделю от данного покупателя составила " + pyaterochka.getStoreRevenue() + " рублей");
+        DecimalFormat df = new DecimalFormat("#.00");
+        System.out.println("Количество покупок за неделю " + pyaterochka.getStoreCustomerNumber() + " штук");
+        System.out.println("Выручка магазина за неделю от данного покупателя составила " + df.format(pyaterochka.getStoreRevenue()) + " рублей");
         double CustNumber = pyaterochka.getStoreCustomerNumber();
         double averRevenuePerCustomer = (pyaterochka.getStoreRevenue()) / (CustNumber);
-        System.out.println("Средний чек за неделю на данного покупателя составил " + averRevenuePerCustomer + " рублей. За неделю было " + numberOfDays + " покупок в магазине данным покупателем");
+        System.out.println("Средний чек за неделю на данного покупателя составил " + df.format(averRevenuePerCustomer) + " рублей. За неделю было " + numberOfDays + " покупок в магазине данным покупателем");
         double maxKefirPrice = 0;
         for (int i3 =1; i3 <= numberOfDays; i3++){
             if (tagsPriceKefir[i3-1] > maxKefirPrice){
                 maxKefirPrice = tagsPriceKefir[i3-1];
             }
         }
-        System.out.println("Самый дорогой кефир за неделю стоил " + maxKefirPrice + " рублей");
+        System.out.println("Самый дорогой кефир за неделю стоил " + df.format(maxKefirPrice) + " рублей");
         double maxCheesePrice = 0;
         for (int i3 =1; i3 <= numberOfDays; i3++){
             if (tagsPriceCheese[i3-1] > maxCheesePrice){
                 maxCheesePrice = tagsPriceCheese[i3-1];
             }
         }
-        System.out.println("Самый дорогой сыр за неделю стоил " + maxCheesePrice + " рублей");
-        System.out.println(pyaterochka.getStoreBonusSum() + " - столько бонусных баллов ушло на оплату всех покупок, что является упущенной выручкой магазина");
-        System.out.println(bonus.getBonusNumberOfPoints() + " - столько бонусных баллов осталось в мобильном приложении покупателя");
+        System.out.println("Самый дорогой сыр за неделю стоил " + df.format(maxCheesePrice) + " рублей");
+        System.out.println(df.format(pyaterochka.getStoreBonusSum()) + " - столько бонусных баллов ушло на оплату всех покупок, что является упущенной выручкой магазина");
+        System.out.println(df.format(bonus.getBonusNumberOfPoints()) + " - столько бонусных баллов осталось в мобильном приложении покупателя");
 
         System.out.println(" ");
         System.out.println("Этот код на GitHub по ссылке https://github.com/PashkovAlexey/digitalRetailStore.git");

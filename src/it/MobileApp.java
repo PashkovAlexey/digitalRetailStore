@@ -2,6 +2,8 @@ package Digital.Retail.Store.it;
 
 import another.DigitalCheque;
 
+import java.text.DecimalFormat;
+
 public class MobileApp extends Digital.Retail.Store.it.IT {
 
     private String mobAppTypeOfOS;
@@ -40,6 +42,7 @@ public class MobileApp extends Digital.Retail.Store.it.IT {
 
     public void mobAppGiveCheque (String name, int k, double kefirPrice, double cheesePrice, double bonusPaid, double bonusAdded, String kefirName, String cheeseName) {
 
+        DecimalFormat df = new DecimalFormat("#.00");
         String chequeDateAndTime = "18:20 2" + k + ".12.2021 года";
         double chequeInfoPurchaseSumm = kefirPrice + cheesePrice;
         DigitalCheque chequeForClient = new DigitalCheque (name,"https://5ka.ru/", "8-800-555-55-05", chequeDateAndTime, "г.Москва, ул.Центральная, д.33", chequeInfoPurchaseSumm, bonusPaid, bonusAdded);
@@ -49,8 +52,8 @@ public class MobileApp extends Digital.Retail.Store.it.IT {
         System.out.println(chequeForClient.getChequeTelephoneNumber());
         System.out.println(chequeForClient.getChequeInfoStoreAddress());
         System.out.println(chequeForClient.getChequeDateAndTime());
-        System.out.println(kefirName + " " + kefirPrice + " рублей");
-        System.out.println(cheeseName + " " + cheesePrice + " рублей");
+        System.out.println(kefirName + " " + df.format(kefirPrice) + " рублей");
+        System.out.println(cheeseName + " " + df.format(cheesePrice) + " рублей");
         chequeForClient.chequePrint();
 
 
