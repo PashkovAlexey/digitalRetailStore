@@ -1,6 +1,7 @@
 package Digital.Retail.Store.it;
 
 import another.DigitalCheque;
+import it.BackEndAPI;
 
 import java.text.DecimalFormat;
 
@@ -10,6 +11,7 @@ public class MobileApp extends Digital.Retail.Store.it.IT {
     private String mobAppDeviceInfo;
     private String mobAppSystemRequirements;
     private String modAppCustomerId;
+    private BackEndAPI apiCredetials = new BackEndAPI();
 
     public MobileApp() {
     }
@@ -61,12 +63,22 @@ public class MobileApp extends Digital.Retail.Store.it.IT {
 
     }
 
+
     public void mobAppDownload() {
         System.out.println("Приложение скачано на смартфон с операционной системой " + mobAppTypeOfOS);
     }
 
-    public void mobAppInstall() {
+    public void mobAppInstall(String customerName) {
         System.out.println("Приложение установлено на смартфоне изготовленном компанией " + mobAppDeviceInfo);
+        System.out.println(" ");
+        System.out.println("Параметры доступа мобильного приложения к back-end через API");
+        System.out.println("Доменное имя: " + apiCredetials.getBackGiveDomain());
+        modAppCustomerId = apiCredetials.backGiveLogin();
+        System.out.println("id App клиента: " + modAppCustomerId);
+        System.out.println("пароль App клиента: " + apiCredetials.backGivePassword(customerName));
+        System.out.println(" ");
+
+
     }
 
     public void mobAppDelete() {

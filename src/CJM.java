@@ -31,14 +31,18 @@ public class CJM {
         String mobAppDeviceInfo = scanner.next();
         String mobAppSystemRequirements = "Место в памяти не менее 20 Мбайт";
         System.out.println("Покупатель по имени " + human.getCustomerName() + " ознакомилась с требованиями к смартфону: " + mobAppSystemRequirements);
-        String modAppCustomerId = "id1234567890";
 
+        String modAppCustomerId = "";
+        MobileApp mobAppHuman = new MobileApp("Мобильное приложение магазина", "Канал обслуживания и продаж", mobAppTypeOfOS, mobAppDeviceInfo, mobAppSystemRequirements, modAppCustomerId);
+        mobAppHuman.mobAppDownload();
+        mobAppHuman.mobAppInstall(customerName);
+
+        modAppCustomerId = mobAppHuman.getModAppCustomerId();
+
+        mobAppHuman.setModAppCustomerId(modAppCustomerId);
         human.setCustomerID(modAppCustomerId);
 
-        MobileApp mobAppHuman = new MobileApp("Мобильное приложение магазина", "Канал обслуживания и продаж", mobAppTypeOfOS, mobAppDeviceInfo, mobAppSystemRequirements, modAppCustomerId);
         System.out.println("Покупателю по имени " + human.getCustomerName() + " присвоен идентификатор " + mobAppHuman.getModAppCustomerId());
-        mobAppHuman.mobAppDownload();
-        mobAppHuman.mobAppInstall();
         mobAppHuman.mobAppOpen();
         human.customerVerivication();
         human.customerApproveActivation();
