@@ -20,10 +20,43 @@ public class CJM {
         System.out.println("Введите имя девушки, которая будет участвовать в CJM.");
         Scanner scanner = new Scanner(System.in);
         String customerName = scanner.next();
-        String customerID = "";
+        System.out.println("Введите одной целой цифрой возраст девушки по имени " + customerName);
+        int customerAge = scanner.nextInt();
 
-        Customer human = new Customer(customerName, customerID);
+        String customerID = "";
+        Customer human = new Customer(customerName, customerID, false, false, false);
         System.out.println("Покупатель по имени " + human.getCustomerName() + " решила зайти в магазин Пятерочка и купить немного продуктов.");
+
+        System.out.println("Покупатель по имени " + human.getCustomerName() + " принимает решение заходить в магазин или нет");
+        System.out.println("Выберите вариант ниже и введите целым цислом номер выбранного вами варианта");
+        System.out.println("1 - покупатель не торопится и может зайти в магазин");
+        System.out.println("2 - покупатель очень торопится");
+        short pokupka1 = scanner.nextShort();
+        boolean customerHasTime = true;
+        if (pokupka1 == 1){
+            customerHasTime = true;
+        } else if (pokupka1 == 2) {
+            customerHasTime = false;
+        }
+
+        boolean customerAlergy = true;
+        System.out.println("Выберите вариант ниже и введите целым цислом номер выбранного вами варианта");
+        System.out.println("1 - покупатель имеет аллергю на эти товары");
+        System.out.println("2 - покупатель не имеет аллергии на эти товары");
+        short pokupka2 = scanner.nextShort();
+        if (pokupka2 == 1){
+            customerAlergy = true;
+        } else if (pokupka2 == 2) {
+            customerAlergy = false;
+        }
+
+        if (customerAlergy || !customerHasTime) {
+            System.out.println(" ");
+            System.out.println("Не пойдет покупатель в магазин ");
+            return;
+        }
+
+
         System.out.println(human.getCustomerName() + " скачивает мобильное приложение магазина Пятерочка.");
         System.out.println("Какой тип операционной системы у смартфона покупателя по имени " + human.getCustomerName() + " ?");
         String mobAppTypeOfOS = scanner.next();
@@ -44,16 +77,16 @@ public class CJM {
 
         System.out.println("Покупателю по имени " + human.getCustomerName() + " присвоен идентификатор " + mobAppHuman.getModAppCustomerId());
         mobAppHuman.mobAppOpen();
-        human.customerVerivication();
+        human.setCustomerVerificationOk(human.customerVerivication());
         human.customerApproveActivation();
-        human.customerUnblocking(modAppCustomerId);
+        human.customerUnblocking(modAppCustomerId, customerAge);
 
         System.out.println("Сколько баллов дадим покупателю по имени " + human.getCustomerName() + " за активацию мобильного приложения в первый раз");
         double bonusNumberOfPoints = 0;
-        while (bonusNumberOfPoints <= 0){
+        do {
             System.out.println("Введите целой цифрой количество баллов, значение больше нуля");
             bonusNumberOfPoints = scanner.nextInt();
-        }
+        } while (bonusNumberOfPoints <= 0);
 
         String bonusCustomerIdInMobApp = modAppCustomerId;
         BonusSystem bonus = new BonusSystem("Система бонусных баллов", "повышение лояльности, рост NPS", "30.12.2021", bonusNumberOfPoints, bonusCustomerIdInMobApp);
@@ -99,6 +132,7 @@ public class CJM {
 
             //покупка кефира
 
+            human.customerShelfScan(customerName);
             System.out.println("Покупатель по имени " + customerName + " заметила первый нужный ей товар и нашла его ценник");
             System.out.println("Покупатель по имени " + customerName + " смотрит на ценник кефира и видит основную инфрормацию о продукте");
             System.out.println("Введите одним словом название кефира выбранного покупателем по имени " + customerName);
@@ -111,7 +145,8 @@ public class CJM {
             double y1 = 0;
             while (y1 <= 0){
                 y1 = scanner.nextDouble();
-                if (y1 >0) {
+                boolean y2 = y1 >0;
+                if (y2) {
                     tagsPriceKefir[j1] = y1;
                 } else {
                     System.out.println("Давай попробуем ввести цену кефира еще разок :)");
@@ -133,6 +168,7 @@ public class CJM {
 
             //покупка сыра
 
+            human.customerShelfScan(customerName);
             System.out.println("Покупатель по имени " + customerName + " заметила второй нужный ей товар и нашла его ценник");
             System.out.println("Покупатель по имени " + customerName + " смотрит на ценник сыра и видит основную инфрормацию о продукте");
             System.out.println("Введите одним словом название сыра выбранного покупателем по имени " + customerName);
@@ -232,6 +268,7 @@ public class CJM {
         2. Всю статистику в конце кода CJM вынести в вызываемый метод, например, в классе BackEndAPI
         3. Бонусные баллы поместить в массив, поискать максимальный и минимальный бал как по оплате, так и по начислениям
         4. Через цикл распечатать на экран все покупки, все оплаты баллами и все начисления баллов по покупателю
+        5. Посмотреть как баллы считаются бонусные по ситуации когда их не хватает
          */
 
     }

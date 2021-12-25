@@ -14,6 +14,7 @@ public class MobileApp extends Digital.Retail.Store.it.IT {
     private BackEndAPI apiCredetials = new BackEndAPI();
 
     public MobileApp() {
+                ;
     }
 
     public MobileApp(String modAppCustomerId) {
