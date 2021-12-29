@@ -3,12 +3,13 @@ package Digital.Retail.Store.Product;
 public class Kefir extends Digital.Retail.Store.Product.DairyProduct {
 
     private double kefirVolume;
+    private String kefirProductTypeName;
 
 
     public Kefir() {
     }
 
-    public Kefir(String productName, double productPrice, String productDateOfProduction, String productBarCode, double dairyFats, int dairyCalorie, String dairyKindOfPackage, String dairyDateEndOfLife, double dairyWater, double dairyCarbohydrates, double dairyProteins, double kefirVolume) {
+    public Kefir(String productName, double productPrice, String productDateOfProduction, String productBarCode, double dairyFats, int dairyCalorie, String dairyKindOfPackage, String dairyDateEndOfLife, double dairyWater, double dairyCarbohydrates, double dairyProteins, double kefirVolume, String kefirProductTypeName) {
         super (productName, productPrice, productDateOfProduction, productBarCode, dairyFats, dairyCalorie, dairyKindOfPackage, dairyDateEndOfLife, dairyWater, dairyCarbohydrates, dairyProteins);
         this.kefirVolume = kefirVolume;
     }
@@ -39,6 +40,14 @@ public class Kefir extends Digital.Retail.Store.Product.DairyProduct {
 
     public void setKefirVolume(double kefirVolume) {
         this.kefirVolume = kefirVolume;
+    }
+
+    public String getKefirProductTypeName() {
+        return kefirProductTypeName;
+    }
+
+    public void setKefirProductTypeName(String kefirProductTypeName) {
+        this.kefirProductTypeName = kefirProductTypeName;
     }
 
 

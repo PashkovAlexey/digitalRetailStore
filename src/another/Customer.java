@@ -51,7 +51,7 @@ public class Customer {
     public boolean customerVerivication() {
         boolean mobileOperatorOk = true;
         System.out.println("Покупатель по имени "  + customerName  + " начала проверку через мобильного оператора");
-        while (true){
+        for ( ; ; ) {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Введите вариант действий, введите целое число цифрой");
             System.out.println("1 - Проверка пройдена");
@@ -88,9 +88,15 @@ public class Customer {
         short polkaNumber = scanner.nextShort();
         System.out.println("Сколько видов товара в каждой полке, введите целое числов цифрой");
         short kefirNumber = scanner.nextShort();
+        System.out.println("Как просматривать товар вдоль полки, выбери вариант ниже и введи номер варианта одной целой цифрой");
+        System.out.println("1 - просматривать каждый товар на полке");
+        System.out.println("2 - просматривать каждый второй товар на полке");
+        System.out.println("3 - просматривать каждый третий товар на полке");
+        System.out.println("N - просматривать каждый N-й товар на полке (вводи любую целую цифру)");
+        short scanOrder = scanner.nextShort();
         System.out.println("Покупатель по имени " + name + " начала просматривать все товары и искать подходящий ей");
         for (short l1 = 1; l1 <= polkaNumber; l1++) {
-            for (short l2 = 1; l2 <= kefirNumber; l2++) {
+            for (int l2 = 1; l2 <= kefirNumber; l2 = l2 + (int)scanOrder) {
                 System.out.println("Полка номер " + l1 + " и вид товара номер " + l2);
             }
         }

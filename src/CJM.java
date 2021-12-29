@@ -31,7 +31,7 @@ public class CJM {
         System.out.println("Выберите вариант ниже и введите целым цислом номер выбранного вами варианта");
         System.out.println("1 - покупатель не торопится и может зайти в магазин");
         System.out.println("2 - покупатель очень торопится");
-        short pokupka1 = scanner.nextShort();
+        Integer pokupka1 = scanner.nextInt();
         boolean customerHasTime = true;
         if (pokupka1 == 1){
             customerHasTime = true;
@@ -39,7 +39,7 @@ public class CJM {
             customerHasTime = false;
         }
 
-        boolean customerAlergy = true;
+        Boolean customerAlergy = true;
         System.out.println("Выберите вариант ниже и введите целым цислом номер выбранного вами варианта");
         System.out.println("1 - покупатель имеет аллергю на эти товары");
         System.out.println("2 - покупатель не имеет аллергии на эти товары");
@@ -94,6 +94,20 @@ public class CJM {
         bonus.setBonusNumberOfPoints(bonusNumberOfPoints);
         mobAppHuman.itSystemUpgrade();
         System.out.println("Покупатель по имени " + human.getCustomerName() + " готова к покупкам в магазине, замерзла пока все это делала на улице :(, но в следующий раз этого ничего не нужно будет");
+
+        do {
+            System.out.println("Точно ли покупатель по имени " + human.getCustomerName() + " хочет пойти в магазин? Выберите ваш вариант и напишите его номер одной целой цифрой");
+            System.out.println("1 - да, пойдем в магазин");
+            System.out.println("2 - нет, не пойдем в магазин, времени уже не осталось свободного");
+            int choice = scanner.nextInt();
+            if (choice == 1) {
+                break;
+            } else if (choice == 2) {
+                return;
+            }
+        } while(true);
+
+
 
         System.out.println("Покупатель по имени " + human.getCustomerName() + " делает такие покупки как сейчас несколько раз в неделю по пути с работы домой");
         int numberOfDays = 0;
@@ -159,7 +173,7 @@ public class CJM {
             priceTagKefir.tagsReadManufacturerName(customerName, priceTagKefir.getTagsProductName());
             priceTagKefir.tagsReadThePrice(customerName, priceTagKefir.getTagsProductName());
 
-            Kefir kefirChosen = new Kefir(priceTagKefir.getTagsProductName(), priceTagKefir.getTagsPrice(), "10.12.2021", "1984654854", 2.5, 440, "Бутылка пластиковая", "27.12.2021", 23.2, 10.1,  125.12,  1.5);
+            Kefir kefirChosen = new Kefir (priceTagKefir.getTagsProductName(), priceTagKefir.getTagsPrice(), "10.12.2021", "1984654854", 2.5, 440, "Бутылка пластиковая", "27.12.2021", 23.2, 10.1,  125.12,  1.5, "кефир");
             kefirChosen.productTakeItFromTheShelf(customerName);
             mobAppHuman.mobAppScanProductBarCode(mobAppHuman.getModAppCustomerId(), priceTagKefir.getTagsProductName());
             kefirChosen.productScanBarCode(priceTagKefir.getTagsProductName());
@@ -243,20 +257,13 @@ public class CJM {
         double CustNumber = pyaterochka.getStoreCustomerNumber();
         double averRevenuePerCustomer = (pyaterochka.getStoreRevenue()) / (CustNumber);
         System.out.println("Средний чек за неделю на данного покупателя составил " + df.format(averRevenuePerCustomer) + " рублей. За неделю было " + numberOfDays + " покупок в магазине данным покупателем");
-        double maxKefirPrice = 0;
-        for (int i3 =1; i3 <= numberOfDays; i3++){
-            if (tagsPriceKefir[i3-1] > maxKefirPrice){
-                maxKefirPrice = tagsPriceKefir[i3-1];
-            }
-        }
-        System.out.println("Самый дорогой кефир за неделю стоил " + df.format(maxKefirPrice) + " рублей");
-        double maxCheesePrice = 0;
-        for (int i3 =1; i3 <= numberOfDays; i3++){
-            if (tagsPriceCheese[i3-1] > maxCheesePrice){
-                maxCheesePrice = tagsPriceCheese[i3-1];
-            }
-        }
-        System.out.println("Самый дорогой сыр за неделю стоил " + df.format(maxCheesePrice) + " рублей");
+
+        pyaterochka.storeFindMaxPriceOneProduct (tagsPriceKefir, "кефир");
+        pyaterochka.storePrintAllOneTypeProduct(tagsPriceKefir, "кефир");
+        pyaterochka.storeFindMaxPriceOneProduct (tagsPriceCheese, "сыр");
+        pyaterochka.storePrintAllOneTypeProduct(tagsPriceCheese, "сыр");
+        pyaterochka.findNumberOfSameProductsByPrice(tagsPriceKefir, tagsPriceCheese);
+        System.out.println(" ");
         System.out.println(df.format(pyaterochka.getStoreBonusSum()) + " - столько бонусных баллов ушло на оплату всех покупок, что является упущенной выручкой магазина");
         System.out.println(df.format(bonus.getBonusNumberOfPoints()) + " - столько бонусных баллов осталось в мобильном приложении покупателя");
 
@@ -269,6 +276,7 @@ public class CJM {
         3. Бонусные баллы поместить в массив, поискать максимальный и минимальный бал как по оплате, так и по начислениям
         4. Через цикл распечатать на экран все покупки, все оплаты баллами и все начисления баллов по покупателю
         5. Посмотреть как баллы считаются бонусные по ситуации когда их не хватает
+        6. Поиск самого дорогого товара за неделю
          */
 
     }

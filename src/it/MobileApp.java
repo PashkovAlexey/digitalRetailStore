@@ -94,8 +94,15 @@ public class MobileApp extends Digital.Retail.Store.it.IT {
         System.out.println("Покупатель закрыл мобильное приложение магазина");
     }
 
+    public void mobAppScanQrOpenDoor(short i) {
+        System.out.println("Покупатель " + modAppCustomerId + " просканировала QR на входе чтобы войти в магазин " + i + "й раз");
+    }
+
     public void mobAppScanQrOpenDoor(int i) {
         System.out.println("Покупатель " + modAppCustomerId + " просканировала QR на входе чтобы войти в магазин " + i + "й раз");
+    }
+    public void mobAppScanQrOpenDoor() {
+        System.out.println("Покупатель " + modAppCustomerId + " просканировала QR на входе чтобы войти в магазин " + "й раз");
     }
 
     public void mobAppScanProductBarCode(String p, String q) {
