@@ -1,6 +1,6 @@
-package Digital.Retail.Store.retailStoreEquipment;
+package retailStoreEquipment;
 
-public class TradeShelve extends Digital.Retail.Store.retailStoreEquipment.RetailStoreEquipment {
+public class TradeShelve extends RetailStoreEquipment {
 
     private int shelvesLength;
     private int shelvesNumber;

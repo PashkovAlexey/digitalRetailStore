@@ -1,4 +1,4 @@
-package Digital.Retail.Store.retailStoreEquipment;
+package retailStoreEquipment;
 
 public class RetailStoreEquipment {
 

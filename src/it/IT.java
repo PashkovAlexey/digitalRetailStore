@@ -1,4 +1,4 @@
-package Digital.Retail.Store.it;
+package it;
 
 public class IT {
 

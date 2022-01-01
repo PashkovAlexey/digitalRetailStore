@@ -1,6 +1,6 @@
-package Digital.Retail.Store.it;
+package it;
 
-public class BonusSystem extends Digital.Retail.Store.it.IT {
+public class BonusSystem extends IT {
 
     private String bonusEndOfLife;
     private double bonusNumberOfPoints;

@@ -1,6 +1,6 @@
-package Digital.Retail.Store.retailStoreEquipment;
+package retailStoreEquipment;
 
-public class DigitalPriceTag extends Digital.Retail.Store.retailStoreEquipment.RetailStoreEquipment {
+public class DigitalPriceTag extends RetailStoreEquipment {
 
     private String tagsScreenColor;
     private double tagsPrice;

@@ -1,11 +1,11 @@
-package Digital.Retail.Store.it;
+package it;
 
 import another.DigitalCheque;
-import it.BackEndAPI;
+
 
 import java.text.DecimalFormat;
 
-public class MobileApp extends Digital.Retail.Store.it.IT {
+public class MobileApp extends IT {
 
     private String mobAppTypeOfOS;
     private String mobAppDeviceInfo;

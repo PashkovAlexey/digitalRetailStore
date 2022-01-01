@@ -1,4 +1,4 @@
-package Digital.Retail.Store.Product;
+package product;
 
 public class Product {
 

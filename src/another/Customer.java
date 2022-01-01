@@ -1,4 +1,4 @@
-package Digital.Retail.Store.another;
+package another;
 
 import java.util.Scanner;
 
@@ -92,7 +92,7 @@ public class Customer {
         System.out.println("1 - просматривать каждый товар на полке");
         System.out.println("2 - просматривать каждый второй товар на полке");
         System.out.println("3 - просматривать каждый третий товар на полке");
-        System.out.println("N - просматривать каждый N-й товар на полке (вводи любую целую цифру)");
+        System.out.println("N - просматривать каждый N-й товар на полке (введите любую целую цифру)");
         short scanOrder = scanner.nextShort();
         System.out.println("Покупатель по имени " + name + " начала просматривать все товары и искать подходящий ей");
         for (short l1 = 1; l1 <= polkaNumber; l1++) {

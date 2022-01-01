@@ -3,7 +3,7 @@ package it;
 import java.text.DecimalFormat;
 import java.util.Random;
 
-public class BackEndAPI extends Digital.Retail.Store.it.IT {
+public class BackEndAPI extends IT {
 
     private String backLogin;
     private String backPassword;

@@ -1,7 +1,4 @@
-package Digital.Retail.Store.another;
-
-import Digital.Retail.Store.Product.Cheese;
-import Digital.Retail.Store.Product.Product;
+package another;
 
 import java.text.DecimalFormat;
 import java.util.Scanner;

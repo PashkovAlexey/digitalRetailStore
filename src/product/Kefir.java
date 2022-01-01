@@ -1,6 +1,6 @@
-package Digital.Retail.Store.Product;
+package product;
 
-public class Kefir extends Digital.Retail.Store.Product.DairyProduct {
+public class Kefir extends DairyProduct {
 
     private double kefirVolume;
     private String kefirProductTypeName;

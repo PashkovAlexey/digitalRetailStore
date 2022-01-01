@@ -1,14 +1,11 @@
-package Digital.Retail.Store;
 
-import Digital.Retail.Store.another.Customer;
-import Digital.Retail.Store.another.RetailStore;
-import Digital.Retail.Store.it.BonusSystem;
-import Digital.Retail.Store.it.MobileApp;
-import Digital.Retail.Store.Product.Cheese;
-import Digital.Retail.Store.Product.Kefir;
-import Digital.Retail.Store.Product.Product;
-import Digital.Retail.Store.retailStoreEquipment.DigitalPriceTag;
-import another.DigitalCheque;
+import another.Customer;
+import another.RetailStore;
+import it.BonusSystem;
+import it.MobileApp;
+import product.Cheese;
+import product.Kefir;
+import retailStoreEquipment.DigitalPriceTag;
 
 import java.text.DecimalFormat;
 import java.util.Scanner;

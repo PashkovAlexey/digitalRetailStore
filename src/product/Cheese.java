@@ -1,6 +1,6 @@
-package Digital.Retail.Store.Product;
+package product;
 
-public class Cheese extends Digital.Retail.Store.Product.DairyProduct {
+public class Cheese extends DairyProduct {
 
     private double cheeseWeight;
 
