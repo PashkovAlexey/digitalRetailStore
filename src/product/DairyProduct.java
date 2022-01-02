@@ -15,49 +15,8 @@ public class DairyProduct extends Product {
     public DairyProduct() {
     }
 
-    public DairyProduct(String dairyDateEndOfLife) {
-        this.dairyDateEndOfLife = dairyDateEndOfLife;
-    }
-
-
-    public DairyProduct(double dairyFats, String dairyDateEndOfLife) {
-        this.dairyFats = dairyFats;
-        this.dairyDateEndOfLife = dairyDateEndOfLife;
-    }
-
-    public DairyProduct(double dairyFats, int dairyCalorie, String dairyDateEndOfLife) {
-        this.dairyFats = dairyFats;
-        this.dairyCalorie = dairyCalorie;
-        this.dairyDateEndOfLife = dairyDateEndOfLife;
-    }
-
-    public DairyProduct(double dairyFats, int dairyCalorie, String dairyKindOfPackage, String dairyDateEndOfLife) {
-        this.dairyFats = dairyFats;
-        this.dairyCalorie = dairyCalorie;
-        this.dairyKindOfPackage = dairyKindOfPackage;
-        this.dairyDateEndOfLife = dairyDateEndOfLife;
-    }
-
-    public DairyProduct(double dairyFats, int dairyCalorie, String dairyKindOfPackage, String dairyDateEndOfLife, double dairyProteins) {
-        this.dairyFats = dairyFats;
-        this.dairyCalorie = dairyCalorie;
-        this.dairyKindOfPackage = dairyKindOfPackage;
-        this.dairyDateEndOfLife = dairyDateEndOfLife;
-        this.dairyProteins = dairyProteins;
-    }
-
-    public DairyProduct(double dairyFats, int dairyCalorie, String dairyKindOfPackage, String dairyDateEndOfLife, double dairyCarbohydrates, double dairyProteins) {
-        this.dairyFats = dairyFats;
-        this.dairyCalorie = dairyCalorie;
-        this.dairyKindOfPackage = dairyKindOfPackage;
-        this.dairyDateEndOfLife = dairyDateEndOfLife;
-        this.dairyCarbohydrates = dairyCarbohydrates;
-        this.dairyProteins = dairyProteins;
-    }
-
-
     public DairyProduct(String productName, double productPrice, String productDateOfProduction, String productBarCode, double dairyFats, int dairyCalorie, String dairyKindOfPackage, String dairyDateEndOfLife, double dairyWater, double dairyCarbohydrates, double dairyProteins) {
-        super (productName, productPrice, productDateOfProduction, productBarCode);
+        super(productName, productPrice, productDateOfProduction, productBarCode);
         this.dairyFats = dairyFats;
         this.dairyCalorie = dairyCalorie;
         this.dairyKindOfPackage = dairyKindOfPackage;
@@ -65,11 +24,6 @@ public class DairyProduct extends Product {
         this.dairyWater = dairyWater;
         this.dairyCarbohydrates = dairyCarbohydrates;
         this.dairyProteins = dairyProteins;
-    }
-
-
-    public void productPutItOnTheShelf() {
-        System.out.println("Молочный продукт положили на полку");
     }
 
     public void productTakeItFromTheShelf() {
@@ -83,9 +37,7 @@ public class DairyProduct extends Product {
     public void productPutItInTheBasket() {
         System.out.println("Молочный продукт положили в корзину в мобильном приложении");
     }
-    public void productTakeItFromTheBasket() {
-        System.out.println("Молочный продукт убран из корзины в мобильном приложении");
-    }
+
 
     public double getDairyFats() {
         return dairyFats;

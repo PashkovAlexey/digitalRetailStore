@@ -8,13 +8,8 @@ public class Cheese extends DairyProduct {
     }
 
     public Cheese(String productName, double productPrice, String productDateOfProduction, String productBarCode, double dairyFats, int dairyCalorie, String dairyKindOfPackage, String dairyDateEndOfLife, double dairyWater, double dairyCarbohydrates, double dairyProteins, double cheeseWeight) {
-        super ( productName,  productPrice,  productDateOfProduction,  productBarCode, dairyFats,  dairyCalorie, dairyKindOfPackage, dairyDateEndOfLife, dairyWater, dairyCarbohydrates, dairyProteins);
+        super(productName, productPrice, productDateOfProduction, productBarCode, dairyFats, dairyCalorie, dairyKindOfPackage, dairyDateEndOfLife, dairyWater, dairyCarbohydrates, dairyProteins);
         this.cheeseWeight = cheeseWeight;
-    }
-
-
-    public void productPutItOnTheShelf() {
-        System.out.println("Сыр положили на полку");
     }
 
     public void productTakeItFromTheShelf(String p) {
@@ -28,9 +23,7 @@ public class Cheese extends DairyProduct {
     public void productPutItInTheBasket() {
         System.out.println("Сыр положили в корзину в мобильном приложении");
     }
-    public void productTakeItFromTheBasket() {
-        System.out.println("Сыр убран из корзины в мобильном приложении");
-    }
+
 
     public double getCheeseWeight() {
         return cheeseWeight;

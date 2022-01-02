@@ -17,36 +17,10 @@ public class Customer {
     private String tagsProductNameCheese;
     private String tagsManufacturerNameCheese;
 
-    private double [] tagsPriceKefir = new double[numberOfDays];
-    private double [] tagsPriceCheese = new double[numberOfDays];
-
-
-
     Scanner scanner = new Scanner(System.in);
     DecimalFormat df = new DecimalFormat();
 
     public Customer() {
-    }
-    public Customer(String customerID) {
-        this.customerID = customerID;
-    }
-
-    public Customer(String customerName, String customerID) {
-        this.customerName = customerName;
-        this.customerID = customerID;
-    }
-
-    public Customer(String customerName, String customerID, boolean customer18Older) {
-        this.customerName = customerName;
-        this.customerID = customerID;
-        this.customer18Older = customer18Older;
-    }
-
-    public Customer(String customerName, String customerID, boolean customer18Older, boolean customerVerificationOk) {
-        this.customerName = customerName;
-        this.customerID = customerID;
-        this.customer18Older = customer18Older;
-        this.customerVerificationOk = customerVerificationOk;
     }
 
     public Customer(String customerName, String customerID, boolean customer18Older, boolean customerVerificationOk, boolean customerPensioner) {
@@ -57,7 +31,8 @@ public class Customer {
         this.customerPensioner = customerPensioner;
     }
 
-    public void customerNameAge () {
+
+    public void customerNameAge() {
         System.out.println("Мы начинаем описывать CJM покупки в новом оцифрованном магазине Пятерочка.");
         System.out.println("Введите имя девушки, которая будет участвовать в CJM.");
         customerName = scanner.next();
@@ -65,59 +40,6 @@ public class Customer {
         customerAge = scanner.nextInt();
 
     }
-
-    public void customerBonusStatistics (double storeBonusSum, double bonusNumberOfPoints) {
-        System.out.println(df.format(storeBonusSum) + " - столько бонусных баллов ушло на оплату всех покупок, что является упущенной выручкой магазина");
-        System.out.println(df.format(bonusNumberOfPoints) + " - столько бонусных баллов осталось в мобильном приложении покупателя");
-        System.out.println(" ");
-
-
-    }
-
-
-    public boolean  customerDecisionGetInto() {
-        System.out.println("Покупатель по имени " + customerName + " готова к покупкам в магазине, замерзла пока все это делала на улице :(, но в следующий раз этого ничего не нужно будет");
-
-        boolean stop = false;
-        do {
-            System.out.println("Точно ли покупатель по имени " + customerName + " хочет пойти в магазин? Выберите ваш вариант и напишите его номер одной целой цифрой");
-            System.out.println("1 - да, пойдем в магазин");
-            System.out.println("2 - нет, не пойдем в магазин, времени уже не осталось свободного");
-            int choice = scanner.nextInt();
-            if (choice == 1) {
-                break;
-            } else if (choice == 2) {
-                stop = true;
-                break;
-            }
-        } while(true);
-        return stop;
-    }
-
-    public void customerNumberOfDays (String storeName){
-        System.out.println("Покупатель по имени " + customerName + " делает такие покупки как сейчас несколько раз в неделю по пути с работы домой");
-        numberOfDays = 0;
-        while (numberOfDays <= 0){
-            System.out.println("Введите целой цифрой количество раз, т.е. количество дней, когда покупатель по имени " + customerName + " делает такие покупки");
-            int x = scanner.nextInt();
-            if (x <= 6) {
-                numberOfDays = x;
-            } else if (x == 7) {
-                System.out.println("Воскресенье выходной у покупателя по имени " + customerName);
-            } else {
-                System.out.println("Нет такого количества рабочих дней в одной неделе");
-            }
-        }
-        if (numberOfDays == 1){
-            System.out.println("Мы условились, что такие покупки совершаются покупателем по имени " + customerName + " " + numberOfDays + " раз в неделю");
-        } else if (numberOfDays <= 4) {
-            System.out.println("Мы условились, что такие покупки совершаются покупателем по имени " + customerName + " " + numberOfDays + " раза в неделю");
-        } else if (numberOfDays > 4){
-            System.out.println("Мы условились, что такие покупки совершаются покупателем по имени " + customerName + " " + numberOfDays + " раз в неделю");
-        }
-        System.out.println("Покупки все " + numberOfDays + " дня/дней будут совершаться в одном и том же магазине под названием " + storeName);
-        System.out.println(" ");
-     }
 
     public boolean customerDecision() {
         boolean stop = false;
@@ -128,7 +50,7 @@ public class Customer {
         System.out.println("2 - покупатель очень торопится");
         Integer pokupka1 = scanner.nextInt();
         boolean customerHasTime = true;
-        if (pokupka1 == 1){
+        if (pokupka1 == 1) {
             customerHasTime = true;
         } else if (pokupka1 == 2) {
             customerHasTime = false;
@@ -139,7 +61,7 @@ public class Customer {
         System.out.println("1 - покупатель имеет аллергю на эти товары");
         System.out.println("2 - покупатель не имеет аллергии на эти товары");
         short pokupka2 = scanner.nextShort();
-        if (pokupka2 == 1){
+        if (pokupka2 == 1) {
             customerAlergy = true;
         } else if (pokupka2 == 2) {
             customerAlergy = false;
@@ -150,36 +72,30 @@ public class Customer {
             System.out.println("Не пойдет покупатель в магазин ");
             stop = true;
         }
-    return stop;
-    }
-
-
-
-    public void customerApproveActivation() {
-        System.out.println("Магазин дал ок на использование мобильного приложения пользователем под номером " + customerID);
+        return stop;
     }
 
     public boolean customerVerivication() {
         boolean mobileOperatorOk = true;
         customerVerificationOk = mobileOperatorOk;
-        System.out.println("Покупатель по имени "  + customerName  + " начала проверку через мобильного оператора");
-        for ( ; ; ) {
+        System.out.println("Покупатель по имени " + customerName + " начала проверку через мобильного оператора");
+        for (; ; ) {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Введите вариант действий, введите целое число цифрой");
             System.out.println("1 - Проверка пройдена");
             System.out.println("2 - Проверка не пройдена");
             short operCheck = scanner.nextShort();
-            if (operCheck == 1){
+            if (operCheck == 1) {
                 break;
             }
         }
 
-        System.out.println("Пройдена проверка личности пользователя приложения по имени " + customerName  + " по смс через мобильного оператора");
+        System.out.println("Пройдена проверка личности пользователя приложения по имени " + customerName + " по смс через мобильного оператора");
         return mobileOperatorOk;
     }
 
-    public void customerBlocking() {
-        System.out.println("Блокирования пользователя в мобильном приложении и системах магазина");
+    public void customerApproveActivation() {
+        System.out.println("Магазин дал ок на использование мобильного приложения пользователем под номером " + customerID);
     }
 
     public void customerUnblocking(String p, int age) {
@@ -194,7 +110,51 @@ public class Customer {
 
     }
 
-    public void customerShelfScan (String name){
+    public boolean customerDecisionGetInto() {
+        System.out.println("Покупатель по имени " + customerName + " готова к покупкам в магазине, замерзла пока все это делала на улице :(, но в следующий раз этого ничего не нужно будет");
+
+        boolean stop = false;
+        do {
+            System.out.println("Точно ли покупатель по имени " + customerName + " хочет пойти в магазин? Выберите ваш вариант и напишите его номер одной целой цифрой");
+            System.out.println("1 - да, пойдем в магазин");
+            System.out.println("2 - нет, не пойдем в магазин, времени уже не осталось свободного");
+            int choice = scanner.nextInt();
+            if (choice == 1) {
+                break;
+            } else if (choice == 2) {
+                stop = true;
+                break;
+            }
+        } while (true);
+        return stop;
+    }
+
+    public void customerNumberOfDays(String storeName) {
+        System.out.println("Покупатель по имени " + customerName + " делает такие покупки как сейчас несколько раз в неделю по пути с работы домой");
+        numberOfDays = 0;
+        while (numberOfDays <= 0) {
+            System.out.println("Введите целой цифрой количество раз, т.е. количество дней, когда покупатель по имени " + customerName + " делает такие покупки");
+            int x = scanner.nextInt();
+            if (x <= 6) {
+                numberOfDays = x;
+            } else if (x == 7) {
+                System.out.println("Воскресенье выходной у покупателя по имени " + customerName);
+            } else {
+                System.out.println("Нет такого количества рабочих дней в одной неделе");
+            }
+        }
+        if (numberOfDays == 1) {
+            System.out.println("Мы условились, что такие покупки совершаются покупателем по имени " + customerName + " " + numberOfDays + " раз в неделю");
+        } else if (numberOfDays <= 4) {
+            System.out.println("Мы условились, что такие покупки совершаются покупателем по имени " + customerName + " " + numberOfDays + " раза в неделю");
+        } else if (numberOfDays > 4) {
+            System.out.println("Мы условились, что такие покупки совершаются покупателем по имени " + customerName + " " + numberOfDays + " раз в неделю");
+        }
+        System.out.println("Покупки все " + numberOfDays + " дня/дней будут совершаться в одном и том же магазине под названием " + storeName);
+        System.out.println(" ");
+    }
+
+    public void customerShelfScan(String name) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Покупатель по имени " + name + " хочет найти необходимый ей товар на стеллаже. Сколько полок она видит, введите целое число цифрой");
         short polkaNumber = scanner.nextShort();
@@ -208,7 +168,7 @@ public class Customer {
         short scanOrder = scanner.nextShort();
         System.out.println("Покупатель по имени " + name + " начала просматривать все товары и искать подходящий ей");
         for (short l1 = 1; l1 <= polkaNumber; l1++) {
-            for (int l2 = 1; l2 <= kefirNumber; l2 = l2 + (int)scanOrder) {
+            for (int l2 = 1; l2 <= kefirNumber; l2 = l2 + (int) scanOrder) {
                 System.out.println("Полка номер " + l1 + " и вид товара номер " + l2);
             }
         }
@@ -223,7 +183,7 @@ public class Customer {
         tagsProductNameKefir = scanner.next();
     }
 
-    public void customerKefirManufacture(){
+    public void customerKefirManufacture() {
         System.out.println("Введите одним словом название изготовителя кефира выбранного покупателем по имени " + customerName);
         tagsManufacturerNameKefir = scanner.next();
 
@@ -233,7 +193,7 @@ public class Customer {
         System.out.println("Напишите какую цену увидела покупатель по имени " + customerName + " на ценнике кефира в виде числа с дробной частью после запятой");
         double y1 = 0;
         double price = 0;
-        while (y1 <= 0){
+        while (y1 <= 0) {
             y1 = scanner.nextDouble();
             boolean y2 = y1 > 0;
             if (y2) {
@@ -242,27 +202,10 @@ public class Customer {
                 System.out.println("Давай попробуем ввести цену кефира еще разок :)");
             }
         }
-    return price;
-    }
-
-    public double customerCheesePrice(){
-        System.out.println("Напишите какую цену увидела покупатель по имени " + customerName + " на ценнике сыра в виде числа с дробной частью после запятой");
-
-        double price = 0;
-        double y2 = 0;
-        while (y2 <= 0){
-            y2 = scanner.nextDouble();
-            if (y2 >0) {
-                price = y2;
-            } else {
-                System.out.println("Давай попробуем ввести цену сыра еще разок :)");
-            }
-        }
-
         return price;
     }
 
-    public void customerReadKefir (int dayNumber, double tagsPriceKefir) {
+    public void customerReadKefir(int dayNumber, double tagsPriceKefir) {
         System.out.println("Покупатель по имени " + customerName + " решила купить кефир в " + dayNumber + "й раз по следующей информации увиденной на ценнике");
         System.out.println("Кефир по цене " + tagsPriceKefir + " рублей, под названием " + tagsProductNameKefir + " от изготовителя " + tagsManufacturerNameKefir);
         System.out.println("Покупатель по имени " + customerName + " поняла что товар называется " + tagsProductNameKefir);
@@ -270,15 +213,7 @@ public class Customer {
 
     }
 
-    public void customerReadCheese (int dayNumber, double tagsPriceCheese) {
-        System.out.println("Покупатель по имени " + customerName + " решила купить сыр в " + dayNumber + "й раз по следующей информации увиденной на ценнике");
-        System.out.println("Сыр по цене " + tagsPriceCheese + " рублей, под названием " + tagsProductNameCheese + " от изготовителя " + tagsManufacturerNameCheese);
-        System.out.println("Покупатель по имени " + customerName + " поняла что товар называется " + tagsProductNameKefir);
-        System.out.println("Покупатель по имени " + customerName + " поняла, что изготовитель сыра " + tagsManufacturerNameKefir);
-
-    }
-
-    public void customerCheeseName () {
+    public void customerCheeseName() {
         System.out.println("Покупатель по имени " + customerName + " заметила второй нужный ей товар и нашла его ценник");
         System.out.println("Покупатель по имени " + customerName + " смотрит на ценник сыра и видит основную инфрормацию о продукте");
         System.out.println("Введите одним словом название сыра выбранного покупателем по имени " + customerName);
@@ -292,6 +227,38 @@ public class Customer {
 
     }
 
+    public double customerCheesePrice() {
+        System.out.println("Напишите какую цену увидела покупатель по имени " + customerName + " на ценнике сыра в виде числа с дробной частью после запятой");
+
+        double price = 0;
+        double y2 = 0;
+        while (y2 <= 0) {
+            y2 = scanner.nextDouble();
+            if (y2 > 0) {
+                price = y2;
+            } else {
+                System.out.println("Давай попробуем ввести цену сыра еще разок :)");
+            }
+        }
+
+        return price;
+    }
+
+    public void customerReadCheese(int dayNumber, double tagsPriceCheese) {
+        System.out.println("Покупатель по имени " + customerName + " решила купить сыр в " + dayNumber + "й раз по следующей информации увиденной на ценнике");
+        System.out.println("Сыр по цене " + tagsPriceCheese + " рублей, под названием " + tagsProductNameCheese + " от изготовителя " + tagsManufacturerNameCheese);
+        System.out.println("Покупатель по имени " + customerName + " поняла что товар называется " + tagsProductNameKefir);
+        System.out.println("Покупатель по имени " + customerName + " поняла, что изготовитель сыра " + tagsManufacturerNameKefir);
+
+    }
+
+    public void customerBonusStatistics(double storeBonusSum, double bonusNumberOfPoints) {
+        System.out.println(df.format(storeBonusSum) + " - столько бонусных баллов ушло на оплату всех покупок, что является упущенной выручкой магазина");
+        System.out.println(df.format(bonusNumberOfPoints) + " - столько бонусных баллов осталось в мобильном приложении покупателя");
+        System.out.println(" ");
+
+
+    }
 
 
     public String getCustomerName() {
@@ -325,6 +292,7 @@ public class Customer {
     public void setCustomerVerificationOk(boolean customerVerificationOk) {
         this.customerVerificationOk = customerVerificationOk;
     }
+
     public boolean isPensioner() {
         return customerPensioner;
     }
@@ -365,7 +333,7 @@ public class Customer {
         this.tagsManufacturerNameKefir = tagsManufacturerNameKefir;
     }
 
-   public String getTagsProductNameCheese() {
+    public String getTagsProductNameCheese() {
         return tagsProductNameCheese;
     }
 
@@ -380,7 +348,6 @@ public class Customer {
     public void setTagsManufacturerNameCheese(String tagsManufacturerNameCheese) {
         this.tagsManufacturerNameCheese = tagsManufacturerNameCheese;
     }
-
 
 
 }

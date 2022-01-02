@@ -16,7 +16,9 @@ public class CJM {
         Customer human = new Customer("", "", false, false, false);
         MobileApp mobAppHuman = new MobileApp("Мобильное приложение магазина", "Канал обслуживания и продаж", "", "", "", "");
         human.customerNameAge();
-        if (human.customerDecision()) { return; }
+        if (human.customerDecision()) {
+            return;
+        }
         mobAppHuman.mobAppDeviceInfo(human.getCustomerName());
         mobAppHuman.mobAppDownload(mobAppHuman.getMobAppTypeOfOS());
         mobAppHuman.mobAppInstall(human.getCustomerName(), mobAppHuman.getMobAppDeviceInfo());
@@ -28,23 +30,25 @@ public class CJM {
         BonusSystem bonus = new BonusSystem("Система бонусных баллов", "повышение лояльности, рост NPS", "30.12.2021", 0, mobAppHuman.getModAppCustomerId());
         bonus.bonusActivate(human.getCustomerName());
         mobAppHuman.itSystemUpgrade();
-        if (human.customerDecisionGetInto()) { return; }
+        if (human.customerDecisionGetInto()) {
+            return;
+        }
         RetailStore pyaterochka = new RetailStore("Пятерочка", 0, 0, 0);
         human.customerNumberOfDays(pyaterochka.getStoreDescription());
 
-        double [] tagsPriceKefir = new double [human.getNumberOfDays()];
-        double [] tagsPriceCheese = new double [human.getNumberOfDays()];
-        for (int dayNumber = 1; dayNumber <= human.getNumberOfDays(); dayNumber++){
+        double[] tagsPriceKefir = new double[human.getNumberOfDays()];
+        double[] tagsPriceCheese = new double[human.getNumberOfDays()];
+        for (int dayNumber = 1; dayNumber <= human.getNumberOfDays(); dayNumber++) {
             mobAppHuman.mobAppScanQrOpenDoor(dayNumber);
 
             human.customerShelfScan(human.getCustomerName());
             human.customerKefirName();
             human.customerKefirManufacture();
-            tagsPriceKefir [dayNumber-1] = human.customerKefirPrice();
-            DigitalPriceTag priceTagKefir = new DigitalPriceTag("Электронный ценник в торговом зале", "Цифровой жидкокристаллический экран серого цвета", tagsPriceKefir[dayNumber-1], human.getTagsProductNameKefir(), human.getTagsManufacturerNameKefir(), "Ценник среднего размера");
+            tagsPriceKefir[dayNumber - 1] = human.customerKefirPrice();
+            DigitalPriceTag priceTagKefir = new DigitalPriceTag("Электронный ценник в торговом зале", "Цифровой жидкокристаллический экран серого цвета", tagsPriceKefir[dayNumber - 1], human.getTagsProductNameKefir(), human.getTagsManufacturerNameKefir(), "Ценник среднего размера");
             human.customerReadKefir(dayNumber, priceTagKefir.getTagsPrice());
             priceTagKefir.tagsReadThePrice(human.getCustomerName(), priceTagKefir.getTagsProductName());
-            Kefir kefirChosen = new Kefir (priceTagKefir.getTagsProductName(), priceTagKefir.getTagsPrice(), "10.12.2021", "1984654854", 2.5, 440, "Бутылка пластиковая", "27.12.2021", 23.2, 10.1,  125.12,  1.5, "кефир");
+            Kefir kefirChosen = new Kefir(priceTagKefir.getTagsProductName(), priceTagKefir.getTagsPrice(), "10.12.2021", "1984654854", 2.5, 440, "Бутылка пластиковая", "27.12.2021", 23.2, 10.1, 125.12, 1.5, "кефир");
             kefirChosen.productTakeItFromTheShelf(human.getCustomerName());
             mobAppHuman.mobAppScanProductBarCode(mobAppHuman.getModAppCustomerId(), priceTagKefir.getTagsProductName());
             kefirChosen.productScanBarCode(priceTagKefir.getTagsProductName());
@@ -52,8 +56,8 @@ public class CJM {
             human.customerShelfScan(human.getCustomerName());
             human.customerCheeseName();
             human.customerCheeseManufacture();
-            tagsPriceCheese[dayNumber-1] = human.customerCheesePrice();
-            DigitalPriceTag priceTagCheese = new DigitalPriceTag("Электронный ценник в торговом зале", "Цифровой жидкокристаллический экран серого цвета", tagsPriceCheese[dayNumber-1], human.getTagsProductNameCheese(), human.getTagsManufacturerNameCheese(), "Ценник среднего размера");
+            tagsPriceCheese[dayNumber - 1] = human.customerCheesePrice();
+            DigitalPriceTag priceTagCheese = new DigitalPriceTag("Электронный ценник в торговом зале", "Цифровой жидкокристаллический экран серого цвета", tagsPriceCheese[dayNumber - 1], human.getTagsProductNameCheese(), human.getTagsManufacturerNameCheese(), "Ценник среднего размера");
             human.customerReadCheese(dayNumber, priceTagCheese.getTagsPrice());
             priceTagCheese.tagsReadThePrice(human.getCustomerName(), priceTagCheese.getTagsProductName());
             Cheese cheeseChosen = new Cheese(priceTagCheese.getTagsProductName(), priceTagCheese.getTagsPrice(), "13.12.2021", "17495875678", 23.8, 230, "Мягкая упаковка", "25.12.2021", 23.2, 102.12, 345.43, 300.10);
@@ -81,9 +85,9 @@ public class CJM {
         mobAppHuman.mobAppOpenDoorGetOut();
         mobAppHuman.mobAppClose();
         pyaterochka.storeAverageCheque(human.getNumberOfDays());
-        pyaterochka.storeFindMaxPriceOneProduct (tagsPriceKefir, "кефир");
+        pyaterochka.storeFindMaxPriceOneProduct(tagsPriceKefir, "кефир");
         pyaterochka.storePrintAllOneTypeProduct(tagsPriceKefir, "кефир");
-        pyaterochka.storeFindMaxPriceOneProduct (tagsPriceCheese, "сыр");
+        pyaterochka.storeFindMaxPriceOneProduct(tagsPriceCheese, "сыр");
         pyaterochka.storePrintAllOneTypeProduct(tagsPriceCheese, "сыр");
         pyaterochka.findNumberOfSameProductsByPrice(tagsPriceKefir, tagsPriceCheese);
         human.customerBonusStatistics(pyaterochka.getStoreBonusSum(), bonus.getBonusNumberOfPoints());
@@ -98,6 +102,7 @@ public class CJM {
         6. Поиск самого дорогого товара за неделю
         7. Еще применить System.arrayCopy для склейки массивов
         8. Попробовать switch с преобразованием в текст, коммент Сергея от 30.12. в телеграмме
+        9. Метод ввода цены попробовать один сделать
          */
 
     }

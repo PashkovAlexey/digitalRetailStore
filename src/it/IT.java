@@ -8,16 +8,10 @@ public class IT {
     public IT() {
     }
 
-    public IT(String itSystemName) {
-        this.itSystemName = itSystemName;
-    }
-
     public IT(String itSystemName, String itSystemPurpose) {
         this.itSystemName = itSystemName;
         this.itSystemPurpose = itSystemPurpose;
     }
-
-
 
     public void itSystemUpgrade() {
         System.out.println("Установлено обновление на ИТ систему");

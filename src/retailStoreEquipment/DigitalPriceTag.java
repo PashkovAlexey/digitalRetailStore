@@ -11,30 +11,8 @@ public class DigitalPriceTag extends RetailStoreEquipment {
     public DigitalPriceTag() {
     }
 
-    public DigitalPriceTag(double tagsPrice) {
-        this.tagsPrice = tagsPrice;
-    }
-
-    public DigitalPriceTag(double tagsPrice, String tagsProductName) {
-        this.tagsPrice = tagsPrice;
-        this.tagsProductName = tagsProductName;
-    }
-
-    public DigitalPriceTag(double tagsPrice, String tagsProductName, String tagsManufacturerName) {
-        this.tagsPrice = tagsPrice;
-        this.tagsProductName = tagsProductName;
-        this.tagsManufacturerName = tagsManufacturerName;
-    }
-
-    public DigitalPriceTag(String tagsScreenColor, double tagsPrice, String tagsProductName, String tagsManufacturerName) {
-        this.tagsScreenColor = tagsScreenColor;
-        this.tagsPrice = tagsPrice;
-        this.tagsProductName = tagsProductName;
-        this.tagsManufacturerName = tagsManufacturerName;
-    }
-
     public DigitalPriceTag(String retailEquipmentName, String tagsScreenColor, double tagsPrice, String tagsProductName, String tagsManufacturerName, String tagsSize) {
-        super (retailEquipmentName);
+        super(retailEquipmentName);
         this.tagsScreenColor = tagsScreenColor;
         this.tagsPrice = tagsPrice;
         this.tagsProductName = tagsProductName;
@@ -42,12 +20,9 @@ public class DigitalPriceTag extends RetailStoreEquipment {
         this.tagsSize = tagsSize;
     }
 
-
     public void tagsReadThePrice(String customerName, String productName) {
         System.out.println("Покупатель по имени " + customerName + " поняла цену товара под названием " + productName);
     }
-
-
 
     public String getTagsScreenColor() {
         return tagsScreenColor;

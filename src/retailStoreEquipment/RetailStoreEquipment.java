@@ -11,6 +11,7 @@ public class RetailStoreEquipment {
         this.retailEquipmentName = retailEquipmentName;
     }
 
+
     public String getRetailEquipmentName() {
         return retailEquipmentName;
     }

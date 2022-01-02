@@ -11,26 +11,46 @@ public class BackEndAPI extends IT {
 
     Random random = new Random();
 
-    public BackEndAPI (){
+    public BackEndAPI() {
 
     }
 
+    public String backGiveDomain() {
+        return backGiveDomain;
+    }
 
-    public String backGiveLogin(){
+    public String backGiveLogin() {
         DecimalFormat df = new DecimalFormat("000000000");
         int x1 = random.nextInt(1000000000);
         backLogin = "id" + df.format(x1);
         return backLogin;
     }
 
-    public String backGivePassword(String CustomerName){
+    public String backGivePassword(String CustomerName) {
         DecimalFormat df = new DecimalFormat("000000000");
         int x2 = random.nextInt(1000000000);
         backPassword = CustomerName + df.format(x2);
         return backPassword;
     }
 
-    public String backGiveDomain() {
+
+    public String getBackLogin() {
+        return backLogin;
+    }
+
+    public void setBackLogin(String backLogin) {
+        this.backLogin = backLogin;
+    }
+
+    public String getBackPassword() {
+        return backPassword;
+    }
+
+    public void setBackPassword(String backPassword) {
+        this.backPassword = backPassword;
+    }
+
+    public String getBackGiveDomain() {
         return backGiveDomain;
     }
 

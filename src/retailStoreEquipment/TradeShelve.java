@@ -8,12 +8,8 @@ public class TradeShelve extends RetailStoreEquipment {
     public TradeShelve() {
     }
 
-    public TradeShelve(int shelvesNumber) {
-        this.shelvesNumber = shelvesNumber;
-    }
-
     public TradeShelve(String retailEquipmentName, int shelvesLength, int shelvesNumber) {
-        super (retailEquipmentName);
+        super(retailEquipmentName);
         this.shelvesLength = shelvesLength;
         this.shelvesNumber = shelvesNumber;
     }
@@ -33,7 +29,6 @@ public class TradeShelve extends RetailStoreEquipment {
     public void setShelvesNumber(int shelvesNumber) {
         this.shelvesNumber = shelvesNumber;
     }
-
 
 
 }

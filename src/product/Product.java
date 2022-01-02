@@ -32,9 +32,6 @@ public class Product {
         this.productBarCode = productBarCode;
     }
 
-    public void productPutItOnTheShelf() {
-        System.out.println("Продукт положили на полку");
-    }
 
     public void productTakeItFromTheShelf() {
         System.out.println("Продукт взял с полки");
@@ -47,9 +44,7 @@ public class Product {
     public void productPutItInTheBasket() {
         System.out.println("Продукт положили в корзину в мобильном приложении");
     }
-    public void productTakeItFromTheBasket() {
-        System.out.println("Продукт убран из корзины в мобильном приложении");
-    }
+
 
     public String getProductName() {
         return productName;
