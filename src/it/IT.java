@@ -14,7 +14,7 @@ public class IT {
     }
 
     public void itSystemUpgrade() {
-        System.out.println("Установлено обновление на ИТ систему");
+        System.out.println("Установлено обновление");
     }
 
     public String getItSystemName() {

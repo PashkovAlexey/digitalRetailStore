@@ -28,8 +28,8 @@ public class BonusSystem extends IT {
         this.bonusCustomerIdInMobApp = bonusCustomerIdInMobApp;
     }
 
-    public void bonusActivate(String customerName) {
-        System.out.println("Сколько баллов дадим покупателю по имени " + customerName + " за активацию мобильного приложения в первый раз");
+    public void bonusActivate(String customerName, String customerID) {
+        System.out.println("Сколько баллов дадим покупателю по имени " + customerName + " (" + customerID + ") за активацию мобильного приложения в первый раз");
         bonusNumberOfPoints = 0;
         do {
             System.out.println("Введите целой цифрой количество баллов, значение больше нуля");
@@ -45,8 +45,8 @@ public class BonusSystem extends IT {
 
     }
 
-    public void bonusPayByPoints() {
-        System.out.println(bonusPayPercentage + " это доля от суммы покупки товаров, за которую можно заплатить бонусными баллами");
+    public void bonusPayByPoints(String mobAppID) {
+        System.out.println(bonusPayPercentage + " - это доля от суммы покупки товаров, за которую можно заплатить бонусными баллами в мобильном приложении " + mobAppID);
         bonusNumberOfPoints = bonusNumberOfPoints - bonusPayment;
 
     }
@@ -58,8 +58,8 @@ public class BonusSystem extends IT {
 
     }
 
-    public void bonusAddPoints() {
-        System.out.println("Покупателю добавлены бонусные баллы от данной покупки в размере " + bonusAddPercentage + " (необходимо умножить на 100% чтобы понять сколько процентов)");
+    public void bonusAddPoints(String customerName, String customerID) {
+        System.out.println("Покупателю по имени " + customerName + " (" + customerID + ") добавлены бонусные баллы от данной покупки в размере " + bonusAddPercentage + " (необходимо умножить на 100% чтобы понять сколько процентов)");
         bonusNumberOfPoints = bonusNumberOfPoints + bonusAddNumber;
         System.out.println(" ");
     }

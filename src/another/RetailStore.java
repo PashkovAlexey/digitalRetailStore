@@ -25,13 +25,13 @@ public class RetailStore {
         this.storeRevenue = storeRevenue;
     }
 
-    public void storePurchase(String p) {
-        System.out.println("В магазине под названием " + p + " совершена покупка");
+    public void storePurchase(String storeName) {
+        System.out.println("В магазине под названием " + storeName + " совершена покупка");
     }
 
-    public void storePaymentAddToRevenue(double p, double q) {
-        storeRevenue = storeRevenue + p + q;
-        System.out.println("Стоимость покупки товара или товаров добавлена к выручке магазина");
+    public void storePaymentAddToRevenue(double kefirPrice, double cheesePrice, String storeName) {
+        storeRevenue = storeRevenue + kefirPrice + cheesePrice;
+        System.out.println("Стоимость покупки товара или товаров добавлена к выручке магазина " + storeName);
     }
 
     public void storeAddBonusSum(double bonusPayment) {
@@ -44,11 +44,11 @@ public class RetailStore {
         }
     }
 
-    public void storeAverageCheque(int numberOfDays) {
+    public void storeAverageCheque(int numberOfDays, String customerName, String customerID) {
         System.out.println("Количество покупок за неделю " + storeCustomerNumber + " штук");
-        System.out.println("Выручка магазина за неделю от данного покупателя составила " + df.format(storeRevenue) + " рублей");
+        System.out.println("Выручка магазина " + storeDescription + " за неделю от данного покупателя по имени " + customerName + " (" + customerID + ") составила " + df.format(storeRevenue) + " рублей");
         double averRevenuePerCustomer = (storeRevenue) / (storeCustomerNumber);
-        System.out.println("Средний чек за неделю на данного покупателя составил " + df.format(averRevenuePerCustomer) + " рублей. За неделю было " + numberOfDays + " покупок в магазине данным покупателем");
+        System.out.println("Средний чек за неделю на данного покупателя по имени " + customerName + " (" + customerID + ") составил " + df.format(averRevenuePerCustomer) + " рублей. За неделю было " + numberOfDays + " покупок в магазине данным покупателем");
     }
 
     public void storeFindMaxPriceOneProduct(double[] weekOneProduct, String productTypeName) {
@@ -89,13 +89,27 @@ public class RetailStore {
             for (int i = 0; i < x3; i++) {
                 System.out.println(df.format(weekAllProduct[i]) + " рублей");
             }
+            double maxPriceProductWeek = weekAllProduct [0];
+            for (int i = 0; i < x3; i++) {
+                if (weekAllProduct[i] > maxPriceProductWeek){
+                    maxPriceProductWeek = weekAllProduct[i];
+                }
+            }
+            System.out.println("Самый дорогой товар за неделю стоил " + df.format(maxPriceProductWeek) + " рублей");
+            double minPriceProductWeek = weekAllProduct [0];
+            for (int i = 0; i < x3; i++) {
+                if (weekAllProduct[i] < minPriceProductWeek){
+                    minPriceProductWeek = weekAllProduct[i];
+                }
+            }
+            System.out.println("Самый дешевый товар за неделю стоил " + df.format(minPriceProductWeek) + " рублей");
             int[] weekAllProductInt = new int[x3];
             for (int i = 0; i < x3; i++) {
                 weekAllProductInt[i] = (int) weekAllProduct[i];
             }
             System.out.println(" ");
-            System.out.println("Посчитаем сколько раз вы купили товары по цене 125 рублей");
-            double k = 0;
+            System.out.println("Давайте поищем сколько раз был куплен товар за 125 рублей");
+            int k = 0;
             for (int selectedPrice : weekAllProductInt) {
                 switch (selectedPrice) {
                     case 125:
@@ -103,7 +117,7 @@ public class RetailStore {
                         break;
                 }
             }
-            System.out.println("Товар был куплен " + k + " раз/раза");
+            System.out.println("Товар по цене 125 рублей (не важно сколько копеек) был куплен " + k + " раз/раза");
         }
         System.out.println(" ");
     }

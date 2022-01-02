@@ -12,16 +12,16 @@ public class Cheese extends DairyProduct {
         this.cheeseWeight = cheeseWeight;
     }
 
-    public void productTakeItFromTheShelf(String p) {
-        System.out.println("Сыр взят с полки покупателем по имени " + p);
+    public void productTakeItFromTheShelf(String customerName, String customerID) {
+        System.out.println("Сыр взят с полки покупателем по имени " + customerName + " (" + customerID + ")");
     }
 
-    public void productScanBarCode(String p) {
-        System.out.println("У сыра под названием " + p + " просканирован штрихкод");
+    public void productScanBarCode(String productName) {
+        System.out.println("У сыра под названием " + productName + " просканирован штрихкод");
     }
 
-    public void productPutItInTheBasket() {
-        System.out.println("Сыр положили в корзину в мобильном приложении");
+    public void productPutItInTheBasket(String mobAppID) {
+        System.out.println("Сыр положили в корзину в мобильном приложении " + mobAppID);
     }
 
 

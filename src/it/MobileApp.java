@@ -33,22 +33,22 @@ public class MobileApp extends IT {
     public void mobAppDeviceInfo(String customerName) {
         System.out.println(customerName + " скачивает мобильное приложение магазина Пятерочка.");
         System.out.println("Какой тип операционной системы у смартфона покупателя по имени " + customerName + " ?");
-        String mobAppTypeOfOS = scanner.next();
+        mobAppTypeOfOS = scanner.next();
         System.out.println("Кто изготовитель смартфона у покупателя по имени " + customerName + " ?");
-        String mobAppDeviceInfo = scanner.next();
+        mobAppDeviceInfo = scanner.next();
         String mobAppSystemRequirements = "Место в памяти не менее 20 Мбайт";
         System.out.println("Покупатель по имени " + customerName + " ознакомилась с требованиями к смартфону: " + mobAppSystemRequirements);
 
     }
 
-    public void mobAppDownload(String mobAppTypeOfOS) {
-        System.out.println("Приложение скачано на смартфон с операционной системой " + mobAppTypeOfOS);
+    public void mobAppDownload(String customerName, String mobAppTypeOfOS) {
+        System.out.println("Приложение скачано на смартфон покупателя по имени " + customerName + " с операционной системой " + mobAppTypeOfOS);
     }
 
     public void mobAppInstall(String customerName, String mobAppDeviceInfo) {
-        System.out.println("Приложение установлено на смартфоне изготовленном компанией " + mobAppDeviceInfo);
+        System.out.println("Приложение установлено на смартфоне покупателя по имени " + customerName + " изготовленном компанией " + mobAppDeviceInfo);
         System.out.println(" ");
-        System.out.println("Параметры доступа мобильного приложения к back-end через API");
+        System.out.println("Параметры доступа мобильного приложения покупателя по имени " + customerName + " к back-end через API");
         System.out.println("Доменное имя: " + apiCredetials.backGiveDomain());
         modAppCustomerId = apiCredetials.backGiveLogin();
         System.out.println("id App клиента: " + modAppCustomerId);
@@ -58,25 +58,25 @@ public class MobileApp extends IT {
 
     public void mobAppOpen(String CustomerName, String ModAppCustomerId) {
         System.out.println("Покупателю по имени " + CustomerName + " присвоен идентификатор " + ModAppCustomerId);
-        System.out.println("Приложение открыто на смартфоне покупателя " + getModAppCustomerId());
+        System.out.println("Приложение открыто на смартфоне покупателя по имени " + CustomerName + " (" + getModAppCustomerId() + ")");
     }
 
-    public void mobAppScanQrOpenDoor(int i) {
-        System.out.println("Покупатель " + modAppCustomerId + " просканировала QR на входе чтобы войти в магазин " + i + "й раз");
+    public void mobAppScanQrOpenDoor(int dayNumber) {
+        System.out.println("Покупатель " + modAppCustomerId + " просканировала QR на входе чтобы войти в магазин " + dayNumber + "й раз");
         System.out.println(" ");
     }
 
-    public void mobAppScanProductBarCode(String p, String q) {
-        System.out.println("Мобильным приложением под номером " + p + " просканирован штрихкод, название товара " + q);
+    public void mobAppScanProductBarCode(String customerID, String productName) {
+        System.out.println("Мобильным приложением под номером " + customerID + " просканирован штрихкод, название товара " + productName);
     }
 
-    public void mobAppApproveChosenProducts(String p, String q) {
+    public void mobAppApproveChosenProducts(String kefirName, String cheeseName) {
         System.out.println(" ");
-        System.out.println("В мобильном приложении одобрены к покупке два товара: кефир под названием " + p + " и сыр под названием " + q);
+        System.out.println("В мобильном приложении одобрены к покупке два товара: кефир под названием " + kefirName + " и сыр под названием " + cheeseName);
     }
 
-    public void mobAppBuyProducts() {
-        System.out.println("Выбранные продукты оплачены в мобильном приложении");
+    public void mobAppBuyProducts(String mobAppID) {
+        System.out.println("Выбранные продукты оплачены в мобильном приложении " + mobAppID);
     }
 
     public void mobAppGiveCheque(String chequeStoreName, int dayNumber, double kefirPrice, double cheesePrice, double bonusPaid, double bonusAdded, String kefirName, String cheeseName) {
@@ -96,12 +96,12 @@ public class MobileApp extends IT {
         System.out.println(" ");
     }
 
-    public void mobAppOpenDoorGetOut() {
-        System.out.println("С помощью мобильного приложения отправлена команда разблокировать замок двери магазина чтобы выйти из магазина");
+    public void mobAppOpenDoorGetOut(String customerID, String storeName) {
+        System.out.println("С помощью мобильного приложения " + customerID + " отправлена команда разблокировать замок двери магазина чтобы выйти из магазина " + storeName);
     }
 
-    public void mobAppClose() {
-        System.out.println("Покупатель закрыл мобильное приложение магазина");
+    public void mobAppClose(String customerName, String customerID, String storeName) {
+        System.out.println("Покупатель по имени " + customerName + " (" + customerID + ") закрыл мобильное приложение магазина " + storeName);
         System.out.println(" ");
     }
 

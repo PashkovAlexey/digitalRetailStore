@@ -20,8 +20,8 @@ public class DigitalPriceTag extends RetailStoreEquipment {
         this.tagsSize = tagsSize;
     }
 
-    public void tagsReadThePrice(String customerName, String productName) {
-        System.out.println("Покупатель по имени " + customerName + " поняла цену товара под названием " + productName);
+    public void tagsReadThePrice(String customerName, String productName, String customerID) {
+        System.out.println("Покупатель по имени " + customerName + " (" + customerID + ") поняла цену товара под названием " + productName);
     }
 
     public String getTagsScreenColor() {

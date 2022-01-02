@@ -14,17 +14,17 @@ public class Kefir extends DairyProduct {
         this.kefirVolume = kefirVolume;
     }
 
-    public void productTakeItFromTheShelf(String p) {
-        System.out.println("Кефир взят с полки покупателем по имени " + p);
+    public void productTakeItFromTheShelf(String customerName, String customerID) {
+        System.out.println("Кефир взят с полки покупателем по имени " + customerName + " (" + customerID + ")");
     }
 
-    public void productScanBarCode(String p) {
-        System.out.println("У кефира под названием " + p + " просканирован штрихкод");
+    public void productScanBarCode(String productName) {
+        System.out.println("У кефира под названием " + productName + " просканирован штрихкод");
         System.out.println(" ");
     }
 
-    public void productPutItInTheBasket() {
-        System.out.println("Кефир положили в корзину в мобильном приложении");
+    public void productPutItInTheBasket(String mobAppID) {
+        System.out.println("Кефир положили в корзину в мобильном приложении " + mobAppID);
     }
 
 
