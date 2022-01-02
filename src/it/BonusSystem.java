@@ -1,10 +1,22 @@
 package it;
 
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
 public class BonusSystem extends IT {
 
     private String bonusEndOfLife;
-    private double bonusNumberOfPoints;
+    private double bonusNumberOfPoints = 0;
     private String bonusCustomerIdInMobApp;
+    private double bonusPayment;
+    private double bonusPayPercentage;
+    private double bonusAddPercentage;
+    private double bonusAddNumber;
+
+
+    Scanner scanner = new Scanner(System.in);
+    DecimalFormat df = new DecimalFormat("#.00");
+
 
     public BonusSystem() {
     }
@@ -26,26 +38,47 @@ public class BonusSystem extends IT {
     }
 
 
+    public void bonusPercentageToPay(double kefirPrice, double cheesePrice) {
+        System.out.println("Введите сколько процентов от покупки можно оплатить баллами, например, 5% вводите как 0,05 через запятую");
+        bonusPayPercentage = scanner.nextDouble();
+        bonusPayment = (kefirPrice + cheesePrice)*bonusPayPercentage;
 
-    public void bonusActivate() {
-        System.out.println("Активирована бонусная программа для клиента " + bonusCustomerIdInMobApp + " с количеством баллов " + bonusNumberOfPoints + " и сроком действия до " + bonusEndOfLife);
+    }
+
+    public void bonusPayByPoints() {
+        System.out.println(bonusPayPercentage + " это доля от суммы покупки товаров, за которую можно заплатить бонусными баллами");
+        bonusNumberOfPoints = bonusNumberOfPoints - bonusPayment;
+
+    }
+
+    public void bonusPercentageOfPurchase (double kefirPrice, double cheesePrice){
+        System.out.println("Введите сколько процентов от покупки можно засчитать покупателю баллами, например, 2% вводите как 0,02 через запятую");
+        bonusAddPercentage = scanner.nextDouble();
+        bonusAddNumber = (kefirPrice + cheesePrice)*bonusAddPercentage;
+
+    }
+
+    public void bonusActivate(String customerName) {
+        System.out.println("Сколько баллов дадим покупателю по имени " + customerName + " за активацию мобильного приложения в первый раз");
+        bonusNumberOfPoints = 0;
+        do {
+            System.out.println("Введите целой цифрой количество баллов, значение больше нуля");
+            bonusNumberOfPoints = scanner.nextInt();
+        } while (bonusNumberOfPoints <= 0);
+        System.out.println("Активирована бонусная программа для клиента " + bonusCustomerIdInMobApp + " с количеством баллов " + df.format(bonusNumberOfPoints) + " и сроком действия до " + bonusEndOfLife);
     }
 
     public void bonusDeactivate() {
         System.out.println("Деактивировать бонусную программу в мобильном приложении магазина");
     }
 
-    public void bonusAddPoints(double p, double q) {
-        System.out.println("Покупателю добавлены бонусные баллы от данной покупки в размере " + p + " (необходимо умножить на 100% чтобы понять сколько процентов)");
-        bonusNumberOfPoints = bonusNumberOfPoints + q;
+    public void bonusAddPoints() {
+        System.out.println("Покупателю добавлены бонусные баллы от данной покупки в размере " + bonusAddPercentage + " (необходимо умножить на 100% чтобы понять сколько процентов)");
+        bonusNumberOfPoints = bonusNumberOfPoints + bonusAddNumber;
         System.out.println(" ");
     }
 
-    public void bonusPayByPoints(double p, double q) {
-        System.out.println(p + " это доля от суммы покупки товаров, за которую можно заплатить бонусными баллами");
-        bonusNumberOfPoints = bonusNumberOfPoints - q;
 
-    }
     public void itSystemUpgrade() {
         System.out.println("Установлено обновление на систему подсчета бонусов");
     }
@@ -73,4 +106,40 @@ public class BonusSystem extends IT {
     public void setBonusCustomerIdInMobApp(String bonusCustomerIdInMobApp) {
         this.bonusCustomerIdInMobApp = bonusCustomerIdInMobApp;
     }
+
+    public double getBonusPayment() {
+        return bonusPayment;
+    }
+
+    public void setBonusPayment(double bonusPayment) {
+        this.bonusPayment = bonusPayment;
+    }
+
+    public double getBonusPayPercentage() {
+        return bonusPayPercentage;
+    }
+
+    public void setBonusPayPercentage(double bonusPayPercentage) {
+        this.bonusPayPercentage = bonusPayPercentage;
+    }
+
+
+    public double getBonusAddPercentage() {
+        return bonusAddPercentage;
+    }
+
+    public void setBonusAddPercentage(double bonusAddPercentage) {
+        this.bonusAddPercentage = bonusAddPercentage;
+    }
+
+
+    public double getBonusAddNumber() {
+        return bonusAddNumber;
+    }
+
+    public void setBonusAddNumber(double bonusAddNumber) {
+        this.bonusAddNumber = bonusAddNumber;
+    }
+
+
 }

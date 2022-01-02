@@ -43,17 +43,11 @@ public class DigitalPriceTag extends RetailStoreEquipment {
     }
 
 
-    public void tagsReadThePrice(String p, String q) {
-        System.out.println("Покупатель по имени " + p + " поняла цену товара под названием " + q);
+    public void tagsReadThePrice(String customerName, String productName) {
+        System.out.println("Покупатель по имени " + customerName + " поняла цену товара под названием " + productName);
     }
 
-    public void tagsReadProductName(String p, String q) {
-        System.out.println("Покупатель по имени " + p + " поняла что товар называется " + q);
-    }
 
-    public void tagsReadManufacturerName(String p, String q) {
-        System.out.println("Покупатель по имени " + p + " поняла кто изготовитель товара");
-    }
 
     public String getTagsScreenColor() {
         return tagsScreenColor;

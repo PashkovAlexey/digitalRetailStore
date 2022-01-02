@@ -4,6 +4,7 @@ import another.DigitalCheque;
 
 
 import java.text.DecimalFormat;
+import java.util.Scanner;
 
 public class MobileApp extends IT {
 
@@ -12,6 +13,8 @@ public class MobileApp extends IT {
     private String mobAppSystemRequirements;
     private String modAppCustomerId;
     private BackEndAPI apiCredetials = new BackEndAPI();
+
+    Scanner scanner = new Scanner(System.in);
 
     public MobileApp() {
                 ;
@@ -42,13 +45,23 @@ public class MobileApp extends IT {
     }
 
 
+    public void mobAppDeviceInfo(String customerName) {
+        System.out.println(customerName + " скачивает мобильное приложение магазина Пятерочка.");
+        System.out.println("Какой тип операционной системы у смартфона покупателя по имени " + customerName + " ?");
+        String mobAppTypeOfOS = scanner.next();
+        System.out.println("Кто изготовитель смартфона у покупателя по имени " + customerName + " ?");
+        String mobAppDeviceInfo = scanner.next();
+        String mobAppSystemRequirements = "Место в памяти не менее 20 Мбайт";
+        System.out.println("Покупатель по имени " + customerName + " ознакомилась с требованиями к смартфону: " + mobAppSystemRequirements);
 
-    public void mobAppGiveCheque (String name, int k, double kefirPrice, double cheesePrice, double bonusPaid, double bonusAdded, String kefirName, String cheeseName) {
+    }
+
+    public void mobAppGiveCheque (String chequeStoreName, int dayNumber, double kefirPrice, double cheesePrice, double bonusPaid, double bonusAdded, String kefirName, String cheeseName) {
 
         DecimalFormat df = new DecimalFormat("#.00");
-        String chequeDateAndTime = "18:20 2" + k + ".12.2021 года";
+        String chequeDateAndTime = "18:20 2" + dayNumber + ".12.2021 года";
         double chequeInfoPurchaseSumm = kefirPrice + cheesePrice;
-        DigitalCheque chequeForClient = new DigitalCheque (name,"https://5ka.ru/", "8-800-555-55-05", chequeDateAndTime, "г.Москва, ул.Центральная, д.33", chequeInfoPurchaseSumm, bonusPaid, bonusAdded);
+        DigitalCheque chequeForClient = new DigitalCheque (chequeStoreName,"https://5ka.ru/", "8-800-555-55-05", chequeDateAndTime, "г.Москва, ул.Центральная, д.33", chequeInfoPurchaseSumm, bonusPaid, bonusAdded);
         System.out.println("Электронный чек");
         System.out.println("Магазин " + chequeForClient.getChequeStoreName());
         System.out.println(chequeForClient.getChequeInternetAddress());
@@ -58,6 +71,7 @@ public class MobileApp extends IT {
         System.out.println(kefirName + " " + df.format(kefirPrice) + " рублей");
         System.out.println(cheeseName + " " + df.format(cheesePrice) + " рублей");
         chequeForClient.chequePrint();
+        System.out.println(" ");
 
 
 
@@ -65,15 +79,15 @@ public class MobileApp extends IT {
     }
 
 
-    public void mobAppDownload() {
+    public void mobAppDownload(String mobAppTypeOfOS) {
         System.out.println("Приложение скачано на смартфон с операционной системой " + mobAppTypeOfOS);
     }
 
-    public void mobAppInstall(String customerName) {
+    public void mobAppInstall(String customerName, String mobAppDeviceInfo) {
         System.out.println("Приложение установлено на смартфоне изготовленном компанией " + mobAppDeviceInfo);
         System.out.println(" ");
         System.out.println("Параметры доступа мобильного приложения к back-end через API");
-        System.out.println("Доменное имя: " + apiCredetials.getBackGiveDomain());
+        System.out.println("Доменное имя: " + apiCredetials.backGiveDomain());
         modAppCustomerId = apiCredetials.backGiveLogin();
         System.out.println("id App клиента: " + modAppCustomerId);
         System.out.println("пароль App клиента: " + apiCredetials.backGivePassword(customerName));
@@ -86,12 +100,15 @@ public class MobileApp extends IT {
         System.out.println("Удаление приложения со смартфона");
     }
 
-    public void mobAppOpen() {
+    public void mobAppOpen(String CustomerName, String ModAppCustomerId) {
+        System.out.println("Покупателю по имени " + CustomerName + " присвоен идентификатор " + ModAppCustomerId);
         System.out.println("Приложение открыто на смартфоне покупателя " + getModAppCustomerId());
     }
 
     public void mobAppClose() {
         System.out.println("Покупатель закрыл мобильное приложение магазина");
+        System.out.println(" ");
+
     }
 
     public void mobAppScanQrOpenDoor(short i) {
@@ -100,6 +117,7 @@ public class MobileApp extends IT {
 
     public void mobAppScanQrOpenDoor(int i) {
         System.out.println("Покупатель " + modAppCustomerId + " просканировала QR на входе чтобы войти в магазин " + i + "й раз");
+        System.out.println(" ");
     }
     public void mobAppScanQrOpenDoor() {
         System.out.println("Покупатель " + modAppCustomerId + " просканировала QR на входе чтобы войти в магазин " + "й раз");
@@ -110,6 +128,7 @@ public class MobileApp extends IT {
     }
 
     public void mobAppApproveChosenProducts(String p, String q) {
+        System.out.println(" ");
         System.out.println("В мобильном приложении одобрены к покупке два товара: кефир под названием " + p + " и сыр под названием " + q);
     }
 
@@ -123,6 +142,8 @@ public class MobileApp extends IT {
     public void itSystemUpgrade() {
         System.out.println("Установлено обновление на мобильное приложение на смартфоне у пользователя под номером " + modAppCustomerId);
     }
+
+
 
     public String getMobAppTypeOfOS() {
         return mobAppTypeOfOS;

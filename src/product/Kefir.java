@@ -25,6 +25,8 @@ public class Kefir extends DairyProduct {
 
     public void productScanBarCode(String p) {
         System.out.println("У кефира под названием " + p + " просканирован штрихкод");
+        System.out.println(" ");
+
     }
 
     public void productPutItInTheBasket() {

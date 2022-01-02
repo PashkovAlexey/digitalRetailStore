@@ -9,8 +9,10 @@ public class RetailStore {
     private int storeCustomerNumber;
     private double storeBonusSum;
     private double storeRevenue;
-    DecimalFormat df = new DecimalFormat("#.00");
     private double maxPrice = 0;
+    private double revenueWoBonuses;
+
+    DecimalFormat df = new DecimalFormat("#.00");
     Scanner scanner = new Scanner(System.in);
 
 
@@ -39,12 +41,32 @@ public class RetailStore {
     }
 
 
+    public void storeAverageCheque (int numberOfDays){
+        System.out.println("Количество покупок за неделю " + storeCustomerNumber + " штук");
+        System.out.println("Выручка магазина за неделю от данного покупателя составила " + df.format(storeRevenue) + " рублей");
+        double averRevenuePerCustomer = (storeRevenue) / (storeCustomerNumber);
+        System.out.println("Средний чек за неделю на данного покупателя составил " + df.format(averRevenuePerCustomer) + " рублей. За неделю было " + numberOfDays + " покупок в магазине данным покупателем");
+
+    }
+
+    public void storeRevenueCalculate (double bonusPayment, double bonusNumberOfPoints){
+        if (bonusPayment < bonusNumberOfPoints){
+            storeRevenue = storeRevenue-bonusPayment;
+        }
+
+    }
+
+    public void storeAddBonusSum (double bonusPayment){
+        storeBonusSum = storeBonusSum + bonusPayment;
+
+    }
+
     public void storePurchase(String p) {
         System.out.println("В магазине под названием " + p + " совершена покупка");
     }
 
-    public void storePaymentAddToRevenue(double p) {
-        storeRevenue = storeRevenue + p;
+    public void storePaymentAddToRevenue(double p, double q) {
+        storeRevenue = storeRevenue + p + q;
         System.out.println("Стоимость покупки товара или товаров добавлена к выручке магазина");
     }
 
@@ -64,6 +86,8 @@ public class RetailStore {
             System.out.println(productTypeName + " " + df.format(selectedOne) + " рублей");
          }
     }
+
+
 
     public void findNumberOfSameProductsByPrice (double [] weekFirstTypeProduct, double [] weekSecondTypeProduct){
         System.out.println("Поищем сколько раз был куплен один и тот же товар? Поиск осуществляется по цене товара. Выбери вариант ниже и введи его одной целой цифрой.");
@@ -109,7 +133,7 @@ public class RetailStore {
                 System.out.println("Товар был куплен " + k + " раз/раза");
 
         }
-
+        System.out.println(" ");
     }
 
 
@@ -132,8 +156,9 @@ public class RetailStore {
         return storeCustomerNumber;
     }
 
-    public void setStoreCustomerNumber(int storeCustomerNumber) {
+    public void setStoreCustomerNumber() {
         this.storeCustomerNumber = storeCustomerNumber;
+        storeCustomerNumber = storeCustomerNumber + 1;
     }
 
     public double getStoreBonusSum() {

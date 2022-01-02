@@ -30,7 +30,7 @@ public class BackEndAPI extends IT {
         return backPassword;
     }
 
-    public String getBackGiveDomain() {
+    public String backGiveDomain() {
         return backGiveDomain;
     }
 

@@ -13,6 +13,9 @@ public class DigitalCheque {
     private double chequeInfoBonusPaid;
     private double chequeInfoBonusAdded;
 
+    DecimalFormat df = new DecimalFormat("#.00");
+
+
     public DigitalCheque(){
 
     }
@@ -29,7 +32,6 @@ public class DigitalCheque {
     }
 
     public void chequePrint(){
-        DecimalFormat df = new DecimalFormat("#.00");
         System.out.println("Сумма покупки " + df.format(chequeInfoPurchaseSumm) + " рублей");
         System.out.println("НДС 20%");
         System.out.println(df.format(chequeInfoBonusPaid) + " баллов потрачено");
