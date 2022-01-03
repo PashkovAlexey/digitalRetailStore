@@ -3,6 +3,7 @@ package it;
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
+
 public class BonusSystem extends IT {
 
     private String bonusEndOfLife;
@@ -13,10 +14,8 @@ public class BonusSystem extends IT {
     private double bonusAddPercentage;
     private double bonusAddNumber;
 
-
     Scanner scanner = new Scanner(System.in);
     DecimalFormat df = new DecimalFormat("#.00");
-
 
     public BonusSystem() {
     }
@@ -63,6 +62,32 @@ public class BonusSystem extends IT {
         bonusNumberOfPoints = bonusNumberOfPoints + bonusAddNumber;
         System.out.println(" ");
     }
+
+    public void bonusMassive (String storeName, String customerName, String customerID, double [] bonusPayment, double [] bonusAdded, int numberOfDays) {
+        System.out.println("Выведем массив всех операций с бонусными баллами у покупателя по имени " + customerName + " (" + customerID + ") в магазине под названием " + storeName);
+        System.out.println("Баллы со знаком плюс - это начисления баллов покупателю. Баллы со знаком минус - это платежти баллами покупателем");
+        int size = numberOfDays * 2;
+        int k = 0;
+        int g = 0;
+        double [] bonusMassive = new double[size];
+        for (int i = 1; i <= size; i++) {
+            if (i%2 != 0){
+                bonusMassive[i-1] = -bonusPayment[k];
+                k = k + 1;
+            } else {
+                bonusMassive[i-1] = bonusAdded[g];
+                g = g + 1;
+            }
+            System.out.println(i + "й элемент массива равен " + df.format(bonusMassive[i-1]));
+        }
+        double sumMassive = 0;
+        for (double value : bonusMassive){
+            sumMassive += value;
+        }
+        System.out.println("Сумма по всему массиву баллов равна " + df.format(sumMassive));
+        System.out.println("");
+    }
+
 
 
     public String getBonusEndOfLife() {

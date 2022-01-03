@@ -2,7 +2,6 @@ package it;
 
 import another.DigitalCheque;
 
-
 import java.text.DecimalFormat;
 import java.util.Scanner;
 

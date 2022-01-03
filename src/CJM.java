@@ -7,12 +7,9 @@ import product.Cheese;
 import product.Kefir;
 import retailStoreEquipment.DigitalPriceTag;
 
-import java.util.Scanner;
-
 public class CJM {
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
         Customer human = new Customer("", "", false, false, false);
         MobileApp mobAppHuman = new MobileApp("Мобильное приложение магазина", "Канал обслуживания и продаж", "", "", "", "");
         human.customerNameAge();
@@ -95,14 +92,9 @@ public class CJM {
         pyaterochka.storePrintAllOneTypeProduct(tagsPriceCheese, "сыр");
         pyaterochka.findNumberOfSameProductsByPrice(tagsPriceKefir, tagsPriceCheese);
         human.customerBonusStatistics(pyaterochka.getStoreBonusSum(), bonus.getBonusNumberOfPoints(), bonusPayment, bonusAdded);
+        bonus.bonusMassive(pyaterochka.getStoreDescription(), human.getCustomerName(),human.getCustomerID(),bonusPayment, bonusAdded, human.getNumberOfDays());
 
         System.out.println("Этот код на GitHub по ссылке https://github.com/PashkovAlexey/digitalRetailStore.git");
-
-        /* что еще можно улучшить в коде
-        1. Склеить два цикла оплаты баллами и начисления баллов через System.arrayCopy и распечатать, потом найти макс и мин
-        4. Посмотреть как баллы считаются бонусные по ситуации когда их не хватает
-        8. Метод ввода цены попробовать один сделать
-         */
 
     }
 
