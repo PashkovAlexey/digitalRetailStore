@@ -1,4 +1,3 @@
-
 import another.Customer;
 import another.RetailStore;
 import it.BonusSystem;
@@ -9,21 +8,16 @@ import retailStoreEquipment.DigitalPriceTag;
 
 public class CJM {
     public static void main(String[] args) {
-
         Customer human = new Customer("", "", false, false, false);
         MobileApp mobAppHuman = new MobileApp("Мобильное приложение магазина", "Канал обслуживания и продаж", "", "", "", "");
         human.customerNameAge();
         if (human.customerDecision()) {
             return;
         }
-        mobAppHuman.mobAppDeviceInfo(human.getCustomerName());
-        mobAppHuman.mobAppDownload(human.getCustomerName(), mobAppHuman.getMobAppTypeOfOS());
-        mobAppHuman.mobAppInstall(human.getCustomerName(), mobAppHuman.getMobAppDeviceInfo());
+        mobAppHuman.mobAppDeviceInfoDownloadInstall(human.getCustomerName(), mobAppHuman.getMobAppTypeOfOS(), mobAppHuman.getMobAppDeviceInfo());
         human.setCustomerID(mobAppHuman.getModAppCustomerId());
         mobAppHuman.mobAppOpen(human.getCustomerName(), human.getCustomerID());
-        human.customerVerivication(human.getCustomerID());
-        human.customerApproveActivation();
-        human.customerUnblocking(mobAppHuman.getModAppCustomerId(), human.getCustomerAge());
+        human.customerVerificationApproveActivationUnblocking(human.getCustomerID(), human.getCustomerAge());
         BonusSystem bonus = new BonusSystem("Система бонусных баллов", "повышение лояльности, рост NPS", "30.12.2021", 0, mobAppHuman.getModAppCustomerId());
         bonus.bonusActivate(human.getCustomerName(), mobAppHuman.getModAppCustomerId());
         mobAppHuman.itSystemUpgrade();
@@ -32,11 +26,10 @@ public class CJM {
         }
         RetailStore pyaterochka = new RetailStore("Пятерочка", 0, 0, 0);
         human.customerNumberOfDays(pyaterochka.getStoreDescription());
-
         double[] tagsPriceKefir = new double[human.getNumberOfDays()];
         double[] tagsPriceCheese = new double[human.getNumberOfDays()];
-        double[] bonusPayment = new double [human.getNumberOfDays()];
-        double[] bonusAdded = new double [human.getNumberOfDays()];
+        double[] bonusPayment = new double[human.getNumberOfDays()];
+        double[] bonusAdded = new double[human.getNumberOfDays()];
         for (int dayNumber = 1; dayNumber <= human.getNumberOfDays(); dayNumber++) {
             mobAppHuman.mobAppScanQrOpenDoor(dayNumber);
 
@@ -68,34 +61,19 @@ public class CJM {
             kefirChosen.productPutItInTheBasket(mobAppHuman.getModAppCustomerId());
             cheeseChosen.productPutItInTheBasket(mobAppHuman.getModAppCustomerId());
             mobAppHuman.mobAppBuyProducts(mobAppHuman.getModAppCustomerId());
-            pyaterochka.storePurchase(pyaterochka.getStoreDescription());
-            pyaterochka.setStoreCustomerNumber();
-            pyaterochka.storePaymentAddToRevenue(priceTagKefir.getTagsPrice(), priceTagCheese.getTagsPrice(), pyaterochka.getStoreDescription());
-            bonus.bonusPercentageToPay(priceTagKefir.getTagsPrice(), priceTagCheese.getTagsPrice());
-            bonus.bonusPayByPoints(mobAppHuman.getModAppCustomerId());
+            pyaterochka.storePurchaseSetCustomerNumberAddToRevenue(priceTagKefir.getTagsPrice(), priceTagCheese.getTagsPrice());
+            bonus.bonusPercentageToPayPayByPoints(priceTagKefir.getTagsPrice(), priceTagCheese.getTagsPrice(), mobAppHuman.getModAppCustomerId());
             pyaterochka.storeAddBonusSum(bonus.getBonusPayment());
-            bonus.bonusPercentageOfPurchase(priceTagKefir.getTagsPrice(), priceTagCheese.getTagsPrice());
-            bonus.bonusAddPoints(human.getCustomerName(), human.getCustomerID());
+            bonus.bonusPercentageOfPurchaseAddPoints(priceTagKefir.getTagsPrice(), priceTagCheese.getTagsPrice(), human.getCustomerName(), human.getCustomerID());
             pyaterochka.storeRevenueCalculate(bonus.getBonusPayment(), bonus.getBonusNumberOfPoints());
             mobAppHuman.mobAppGiveCheque(pyaterochka.getStoreDescription(), dayNumber, priceTagKefir.getTagsPrice(), priceTagCheese.getTagsPrice(), bonus.getBonusPayment(), bonus.getBonusAddNumber(), kefirChosen.getProductName(), cheeseChosen.getProductName());
             bonusPayment[dayNumber - 1] = bonus.getBonusPayment();
             bonusAdded[dayNumber - 1] = bonus.getBonusAddNumber();
-
         }
-
-        mobAppHuman.mobAppOpenDoorGetOut(mobAppHuman.getModAppCustomerId(), pyaterochka.getStoreDescription());
-        mobAppHuman.mobAppClose(human.getCustomerName(), human.getCustomerID(), pyaterochka.getStoreDescription());
-        pyaterochka.storeAverageCheque(human.getNumberOfDays(), human.getCustomerName(), human.getCustomerID());
-        pyaterochka.storeFindMaxPriceOneProduct(tagsPriceKefir, "кефир");
-        pyaterochka.storePrintAllOneTypeProduct(tagsPriceKefir, "кефир");
-        pyaterochka.storeFindMaxPriceOneProduct(tagsPriceCheese, "сыр");
-        pyaterochka.storePrintAllOneTypeProduct(tagsPriceCheese, "сыр");
-        pyaterochka.findNumberOfSameProductsByPrice(tagsPriceKefir, tagsPriceCheese);
+        mobAppHuman.mobAppOpenDoorGetOutAppClose(mobAppHuman.getModAppCustomerId(), pyaterochka.getStoreDescription(), human.getCustomerName());
+        pyaterochka.storeSixFinalMethods(human.getNumberOfDays(), human.getCustomerName(), human.getCustomerID(), tagsPriceKefir, tagsPriceCheese);
         human.customerBonusStatistics(pyaterochka.getStoreBonusSum(), bonus.getBonusNumberOfPoints(), bonusPayment, bonusAdded);
-        bonus.bonusMassive(pyaterochka.getStoreDescription(), human.getCustomerName(),human.getCustomerID(),bonusPayment, bonusAdded, human.getNumberOfDays());
-
+        bonus.bonusMassive(pyaterochka.getStoreDescription(), human.getCustomerName(), human.getCustomerID(), bonusPayment, bonusAdded, human.getNumberOfDays());
         System.out.println("Этот код на GitHub по ссылке https://github.com/PashkovAlexey/digitalRetailStore.git");
-
     }
-
 }

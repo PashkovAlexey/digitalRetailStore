@@ -31,6 +31,11 @@ public class Customer {
         this.customerPensioner = customerPensioner;
     }
 
+    public void customerVerificationApproveActivationUnblocking (String customerID, int age) {
+        customerVerivication(customerID);
+        customerApproveActivation();
+        customerUnblocking(customerID, age);
+    }
 
     public void customerNameAge() {
         System.out.println("Мы начинаем описывать CJM покупки в новом оцифрованном магазине Пятерочка.");

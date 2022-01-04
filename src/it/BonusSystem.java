@@ -27,6 +27,16 @@ public class BonusSystem extends IT {
         this.bonusCustomerIdInMobApp = bonusCustomerIdInMobApp;
     }
 
+    public void bonusPercentageToPayPayByPoints(double priceKefir, double priceCheese, String customerID) {
+        bonusPercentageToPay(priceKefir, priceCheese);
+        bonusPayByPoints(customerID);
+    }
+
+    public void bonusPercentageOfPurchaseAddPoints(double priceKefir, double priceCheese, String customerName, String customerID){
+        bonusPercentageOfPurchase(priceKefir, priceCheese);
+        bonusAddPoints(customerName, customerID);
+    }
+
     public void bonusActivate(String customerName, String customerID) {
         System.out.println("Сколько баллов дадим покупателю по имени " + customerName + " (" + customerID + ") за активацию мобильного приложения в первый раз");
         bonusNumberOfPoints = 0;

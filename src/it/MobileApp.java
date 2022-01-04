@@ -29,6 +29,17 @@ public class MobileApp extends IT {
         this.modAppCustomerId = modAppCustomerId;
     }
 
+    public void mobAppDeviceInfoDownloadInstall (String customerName, String mobAppTypeOfOS, String mobAppDeviceInfo) {
+        mobAppDeviceInfo(customerName);
+        mobAppDownload(customerName, mobAppTypeOfOS);
+        mobAppInstall(customerName, mobAppDeviceInfo);
+    }
+
+    public void mobAppOpenDoorGetOutAppClose(String customerID, String storeDescription, String customerName, ) {
+        mobAppOpenDoorGetOut(customerID, storeDescription);
+        mobAppClose(customerName, customerID, storeDescription);
+    }
+
     public void mobAppDeviceInfo(String customerName) {
         System.out.println(customerName + " скачивает мобильное приложение магазина Пятерочка.");
         System.out.println("Какой тип операционной системы у смартфона покупателя по имени " + customerName + " ?");

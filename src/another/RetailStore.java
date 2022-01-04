@@ -25,6 +25,21 @@ public class RetailStore {
         this.storeRevenue = storeRevenue;
     }
 
+    public void storePurchaseSetCustomerNumberAddToRevenue (double priceKefir, double priceCheese) {
+        storePurchase(storeDescription)
+        setStoreCustomerNumber();
+        storePaymentAddToRevenue(priceKefir, priceCheese, storeDescription)
+    }
+
+    public void storeSixFinalMethods (int numberOfDays, String customerName, String customerID, double [] tagsPriceKefir, double [] tagsPriceCheese) {
+        storeAverageCheque(numberOfDays, customerName, customerID);
+        storeFindMaxPriceOneProduct(tagsPriceKefir, "кефир");
+        storePrintAllOneTypeProduct(tagsPriceKefir, "кефир");
+        storeFindMaxPriceOneProduct(tagsPriceCheese, "сыр");
+        storePrintAllOneTypeProduct(tagsPriceCheese, "сыр");
+        findNumberOfSameProductsByPrice(tagsPriceKefir, tagsPriceCheese);
+    }
+
     public void storePurchase(String storeName) {
         System.out.println("В магазине под названием " + storeName + " совершена покупка");
     }
