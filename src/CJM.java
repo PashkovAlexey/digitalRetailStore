@@ -14,7 +14,7 @@ public class CJM {
         if (human.customerDecision()) {
             return;
         }
-        mobAppHuman.mobAppDeviceInfoDownloadInstall(human.getCustomerName(), mobAppHuman.getMobAppTypeOfOS(), mobAppHuman.getMobAppDeviceInfo());
+        mobAppHuman.mobAppDeviceInfoDownloadInstall(human.getCustomerName());
         human.setCustomerID(mobAppHuman.getModAppCustomerId());
         mobAppHuman.mobAppOpen(human.getCustomerName(), human.getCustomerID());
         human.customerVerificationApproveActivationUnblocking(human.getCustomerID(), human.getCustomerAge());
@@ -33,9 +33,7 @@ public class CJM {
         for (int dayNumber = 1; dayNumber <= human.getNumberOfDays(); dayNumber++) {
             mobAppHuman.mobAppScanQrOpenDoor(dayNumber);
 
-            human.customerShelfScan(human.getCustomerName(), mobAppHuman.getModAppCustomerId());
-            human.customerKefirName(mobAppHuman.getModAppCustomerId());
-            human.customerKefirManufacture(mobAppHuman.getModAppCustomerId());
+            human.customerShelfScanKefirNameKefirManufacture(human.getCustomerName(), mobAppHuman.getModAppCustomerId());
             tagsPriceKefir[dayNumber - 1] = human.customerKefirPrice(mobAppHuman.getModAppCustomerId());
             DigitalPriceTag priceTagKefir = new DigitalPriceTag("Электронный ценник в торговом зале", "Цифровой жидкокристаллический экран серого цвета", tagsPriceKefir[dayNumber - 1], human.getTagsProductNameKefir(), human.getTagsManufacturerNameKefir(), "Ценник среднего размера");
             human.customerReadKefir(dayNumber, priceTagKefir.getTagsPrice());
@@ -45,9 +43,7 @@ public class CJM {
             mobAppHuman.mobAppScanProductBarCode(mobAppHuman.getModAppCustomerId(), priceTagKefir.getTagsProductName());
             kefirChosen.productScanBarCode(priceTagKefir.getTagsProductName());
 
-            human.customerShelfScan(human.getCustomerName(), mobAppHuman.getModAppCustomerId());
-            human.customerCheeseName();
-            human.customerCheeseManufacture();
+            human.customerShelfScanCheeseNameCheeseManufacture(human.getCustomerName(), mobAppHuman.getModAppCustomerId());
             tagsPriceCheese[dayNumber - 1] = human.customerCheesePrice();
             DigitalPriceTag priceTagCheese = new DigitalPriceTag("Электронный ценник в торговом зале", "Цифровой жидкокристаллический экран серого цвета", tagsPriceCheese[dayNumber - 1], human.getTagsProductNameCheese(), human.getTagsManufacturerNameCheese(), "Ценник среднего размера");
             human.customerReadCheese(dayNumber, priceTagCheese.getTagsPrice());

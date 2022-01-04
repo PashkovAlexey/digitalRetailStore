@@ -37,6 +37,18 @@ public class Customer {
         customerUnblocking(customerID, age);
     }
 
+    public void customerShelfScanKefirNameKefirManufacture (String customerName, String customerID){
+        customerShelfScan(customerName,customerID);
+        customerKefirName(customerID);
+        customerKefirManufacture(customerID);
+    }
+
+    public void customerShelfScanCheeseNameCheeseManufacture (String customerName, String customerID){
+        customerShelfScan(customerName, customerID);
+        customerCheeseName();
+        customerCheeseManufacture();
+    }
+
     public void customerNameAge() {
         System.out.println("Мы начинаем описывать CJM покупки в новом оцифрованном магазине Пятерочка.");
         System.out.println("Введите имя девушки, которая будет участвовать в CJM.");

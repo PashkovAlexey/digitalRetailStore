@@ -29,13 +29,13 @@ public class MobileApp extends IT {
         this.modAppCustomerId = modAppCustomerId;
     }
 
-    public void mobAppDeviceInfoDownloadInstall (String customerName, String mobAppTypeOfOS, String mobAppDeviceInfo) {
+    public void mobAppDeviceInfoDownloadInstall (String customerName) {
         mobAppDeviceInfo(customerName);
         mobAppDownload(customerName, mobAppTypeOfOS);
         mobAppInstall(customerName, mobAppDeviceInfo);
     }
 
-    public void mobAppOpenDoorGetOutAppClose(String customerID, String storeDescription, String customerName, ) {
+    public void mobAppOpenDoorGetOutAppClose(String customerID, String storeDescription, String customerName) {
         mobAppOpenDoorGetOut(customerID, storeDescription);
         mobAppClose(customerName, customerID, storeDescription);
     }

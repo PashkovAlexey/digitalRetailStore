@@ -26,9 +26,9 @@ public class RetailStore {
     }
 
     public void storePurchaseSetCustomerNumberAddToRevenue (double priceKefir, double priceCheese) {
-        storePurchase(storeDescription)
+        storePurchase(storeDescription);
         setStoreCustomerNumber();
-        storePaymentAddToRevenue(priceKefir, priceCheese, storeDescription)
+        storePaymentAddToRevenue(priceKefir, priceCheese, storeDescription);
     }
 
     public void storeSixFinalMethods (int numberOfDays, String customerName, String customerID, double [] tagsPriceKefir, double [] tagsPriceCheese) {
