@@ -15,8 +15,8 @@ public class DairyProduct extends Product {
     public DairyProduct() {
     }
 
-    public DairyProduct(String productName, double productPrice, String productDateOfProduction, String productBarCode, double dairyFats, int dairyCalorie, String dairyKindOfPackage, String dairyDateEndOfLife, double dairyWater, double dairyCarbohydrates, double dairyProteins) {
-        super(productName, productPrice, productDateOfProduction, productBarCode);
+    public DairyProduct(String productName, double productPrice, String productDateOfProduction, String productBarCode, double dairyFats, int dairyCalorie, String dairyKindOfPackage, String dairyDateEndOfLife, double dairyWater, double dairyCarbohydrates, double dairyProteins, String productTypeName) {
+        super(productName, productPrice, productDateOfProduction, productBarCode, productTypeName);
         this.dairyFats = dairyFats;
         this.dairyCalorie = dairyCalorie;
         this.dairyKindOfPackage = dairyKindOfPackage;

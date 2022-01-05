@@ -40,31 +40,7 @@ public class MobileApp extends IT {
         mobAppClose(customerName, customerID, storeDescription);
     }
 
-    public void mobAppDeviceInfo(String customerName) {
-        System.out.println(customerName + " скачивает мобильное приложение магазина Пятерочка.");
-        System.out.println("Какой тип операционной системы у смартфона покупателя по имени " + customerName + " ?");
-        mobAppTypeOfOS = scanner.next();
-        System.out.println("Кто изготовитель смартфона у покупателя по имени " + customerName + " ?");
-        mobAppDeviceInfo = scanner.next();
-        String mobAppSystemRequirements = "Место в памяти не менее 20 Мбайт";
-        System.out.println("Покупатель по имени " + customerName + " ознакомилась с требованиями к смартфону: " + mobAppSystemRequirements);
 
-    }
-
-    public void mobAppDownload(String customerName, String mobAppTypeOfOS) {
-        System.out.println("Приложение скачано на смартфон покупателя по имени " + customerName + " с операционной системой " + mobAppTypeOfOS);
-    }
-
-    public void mobAppInstall(String customerName, String mobAppDeviceInfo) {
-        System.out.println("Приложение установлено на смартфоне покупателя по имени " + customerName + " изготовленном компанией " + mobAppDeviceInfo);
-        System.out.println(" ");
-        System.out.println("Параметры доступа мобильного приложения покупателя по имени " + customerName + " к back-end через API");
-        System.out.println("Доменное имя: " + apiCredetials.backGiveDomain());
-        modAppCustomerId = apiCredetials.backGiveLogin();
-        System.out.println("id App клиента: " + modAppCustomerId);
-        System.out.println("пароль App клиента: " + apiCredetials.backGivePassword(customerName));
-        System.out.println(" ");
-    }
 
     public void mobAppOpen(String CustomerName, String ModAppCustomerId) {
         System.out.println("Покупателю по имени " + CustomerName + " присвоен идентификатор " + ModAppCustomerId);
@@ -106,11 +82,41 @@ public class MobileApp extends IT {
         System.out.println(" ");
     }
 
-    public void mobAppOpenDoorGetOut(String customerID, String storeName) {
+
+    private void mobAppDeviceInfo(String customerName) {
+        System.out.println(customerName + " скачивает мобильное приложение магазина Пятерочка.");
+        System.out.println("Какой тип операционной системы у смартфона покупателя по имени " + customerName + " ?");
+        mobAppTypeOfOS = scanner.next();
+        System.out.println("Кто изготовитель смартфона у покупателя по имени " + customerName + " ?");
+        mobAppDeviceInfo = scanner.next();
+        String mobAppSystemRequirements = "Место в памяти не менее 20 Мбайт";
+        System.out.println("Покупатель по имени " + customerName + " ознакомилась с требованиями к смартфону: " + mobAppSystemRequirements);
+
+    }
+
+    private void mobAppDownload(String customerName, String mobAppTypeOfOS) {
+        System.out.println("Приложение скачано на смартфон покупателя по имени " + customerName + " с операционной системой " + mobAppTypeOfOS);
+    }
+
+
+    private void mobAppInstall(String customerName, String mobAppDeviceInfo) {
+        System.out.println("Приложение установлено на смартфоне покупателя по имени " + customerName + " изготовленном компанией " + mobAppDeviceInfo);
+        System.out.println(" ");
+        System.out.println("Параметры доступа мобильного приложения покупателя по имени " + customerName + " к back-end через API");
+        modAppCustomerId = apiCredetials.backGiveLogin();
+        System.out.println("id App клиента: " + modAppCustomerId);
+        System.out.println("пароль App клиента: " + apiCredetials.backGivePassword(customerName));
+        System.out.println("Доменное имя: " + apiCredetials.backGiveDomain());
+        System.out.println(" ");
+    }
+
+
+    private void mobAppOpenDoorGetOut(String customerID, String storeName) {
         System.out.println("С помощью мобильного приложения " + customerID + " отправлена команда разблокировать замок двери магазина чтобы выйти из магазина " + storeName);
     }
 
-    public void mobAppClose(String customerName, String customerID, String storeName) {
+
+    private void mobAppClose(String customerName, String customerID, String storeName) {
         System.out.println("Покупатель по имени " + customerName + " (" + customerID + ") закрыл мобильное приложение магазина " + storeName);
         System.out.println(" ");
     }

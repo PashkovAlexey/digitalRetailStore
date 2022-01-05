@@ -6,6 +6,8 @@ public class Product {
     private double productPrice;
     private String productDateOfProduction;
     private String productBarCode;
+    private String productTypeName;
+
 
     public Product() {
     }
@@ -25,11 +27,12 @@ public class Product {
         this.productBarCode = productBarCode;
     }
 
-    public Product(String productName, double productPrice, String productDateOfProduction, String productBarCode) {
+    public Product(String productName, double productPrice, String productDateOfProduction, String productBarCode, String productTypeName) {
         this.productName = productName;
         this.productPrice = productPrice;
         this.productDateOfProduction = productDateOfProduction;
         this.productBarCode = productBarCode;
+        this.productTypeName = productTypeName;
     }
 
 
@@ -77,5 +80,14 @@ public class Product {
     public void setProductBarCode(String productBarCode) {
         this.productBarCode = productBarCode;
     }
+
+    public String getProductTypeName() {
+        return productTypeName;
+    }
+
+    public void setProductTypeName(String productTypeName) {
+        this.productTypeName = productTypeName;
+    }
+
 
 }

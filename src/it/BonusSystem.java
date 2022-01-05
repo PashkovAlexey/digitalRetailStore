@@ -7,12 +7,16 @@ import java.util.Scanner;
 public class BonusSystem extends IT {
 
     private String bonusEndOfLife;
-    private double bonusNumberOfPoints = 0;
+    private double bonusNumberOfPoints;
     private String bonusCustomerIdInMobApp;
     private double bonusPayment;
     private double bonusPayPercentage;
     private double bonusAddPercentage;
     private double bonusAddNumber;
+
+    {
+        bonusNumberOfPoints = 0;
+    }
 
     Scanner scanner = new Scanner(System.in);
     DecimalFormat df = new DecimalFormat("#.00");
@@ -47,31 +51,8 @@ public class BonusSystem extends IT {
         System.out.println("Активирована бонусная программа для клиента " + bonusCustomerIdInMobApp + " с количеством баллов " + df.format(bonusNumberOfPoints) + " и сроком действия до " + bonusEndOfLife);
     }
 
-    public void bonusPercentageToPay(double kefirPrice, double cheesePrice) {
-        System.out.println("Введите сколько процентов от покупки можно оплатить баллами, например, 5% вводите как 0,05 через запятую");
-        bonusPayPercentage = scanner.nextDouble();
-        bonusPayment = (kefirPrice + cheesePrice) * bonusPayPercentage;
 
-    }
 
-    public void bonusPayByPoints(String mobAppID) {
-        System.out.println(bonusPayPercentage + " - это доля от суммы покупки товаров, за которую можно заплатить бонусными баллами в мобильном приложении " + mobAppID);
-        bonusNumberOfPoints = bonusNumberOfPoints - bonusPayment;
-
-    }
-
-    public void bonusPercentageOfPurchase(double kefirPrice, double cheesePrice) {
-        System.out.println("Введите сколько процентов от покупки можно засчитать покупателю баллами, например, 2% вводите как 0,02 через запятую");
-        bonusAddPercentage = scanner.nextDouble();
-        bonusAddNumber = (kefirPrice + cheesePrice) * bonusAddPercentage;
-
-    }
-
-    public void bonusAddPoints(String customerName, String customerID) {
-        System.out.println("Покупателю по имени " + customerName + " (" + customerID + ") добавлены бонусные баллы от данной покупки в размере " + bonusAddPercentage + " (необходимо умножить на 100% чтобы понять сколько процентов)");
-        bonusNumberOfPoints = bonusNumberOfPoints + bonusAddNumber;
-        System.out.println(" ");
-    }
 
     public void bonusMassive (String storeName, String customerName, String customerID, double [] bonusPayment, double [] bonusAdded, int numberOfDays) {
         System.out.println("Выведем массив всех операций с бонусными баллами у покупателя по имени " + customerName + " (" + customerID + ") в магазине под названием " + storeName);
@@ -98,7 +79,32 @@ public class BonusSystem extends IT {
         System.out.println("");
     }
 
+    private void bonusPercentageToPay(double kefirPrice, double cheesePrice) {
+        System.out.println("Введите сколько процентов от покупки можно оплатить баллами, например, 5% вводите как 0,05 через запятую");
+        bonusPayPercentage = scanner.nextDouble();
+        bonusPayment = (kefirPrice + cheesePrice) * bonusPayPercentage;
 
+    }
+
+    private void bonusPayByPoints(String mobAppID) {
+        System.out.println(bonusPayPercentage + " - это доля от суммы покупки товаров, за которую можно заплатить бонусными баллами в мобильном приложении " + mobAppID);
+        bonusNumberOfPoints = bonusNumberOfPoints - bonusPayment;
+
+    }
+
+    private void bonusPercentageOfPurchase(double kefirPrice, double cheesePrice) {
+        System.out.println("Введите сколько процентов от покупки можно засчитать покупателю баллами, например, 2% вводите как 0,02 через запятую");
+        bonusAddPercentage = scanner.nextDouble();
+        bonusAddNumber = (kefirPrice + cheesePrice) * bonusAddPercentage;
+
+    }
+
+
+    private void bonusAddPoints(String customerName, String customerID) {
+        System.out.println("Покупателю по имени " + customerName + " (" + customerID + ") добавлены бонусные баллы от данной покупки в размере " + bonusAddPercentage + " (необходимо умножить на 100% чтобы понять сколько процентов)");
+        bonusNumberOfPoints = bonusNumberOfPoints + bonusAddNumber;
+        System.out.println(" ");
+    }
 
     public String getBonusEndOfLife() {
         return bonusEndOfLife;

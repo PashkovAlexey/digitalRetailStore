@@ -6,12 +6,12 @@ import java.util.Scanner;
 public class Customer {
 
     private String customerName;
-    private String customerID;
+    private String customerID = "";
     private boolean customer18Older;
     private boolean customerVerificationOk;
     private boolean customerPensioner;
     private int customerAge;
-    private int numberOfDays;
+    private Integer numberOfDays;
     private String tagsProductNameKefir;
     private String tagsManufacturerNameKefir;
     private String tagsProductNameCheese;
@@ -49,8 +49,12 @@ public class Customer {
         customerCheeseManufacture();
     }
 
-    public void customerNameAge() {
+    public static void customerStart (){
         System.out.println("Мы начинаем описывать CJM покупки в новом оцифрованном магазине Пятерочка.");
+
+    }
+
+    public void customerNameAge() {
         System.out.println("Введите имя девушки, которая будет участвовать в CJM.");
         customerName = scanner.next();
         System.out.println("Введите одной целой цифрой возраст девушки по имени " + customerName);
@@ -92,40 +96,6 @@ public class Customer {
         return stop;
     }
 
-    public boolean customerVerivication(String customerID) {
-        boolean mobileOperatorOk = true;
-        customerVerificationOk = mobileOperatorOk;
-        System.out.println("Покупатель по имени " + customerName + " (" + customerID + ") начала проверку через мобильного оператора");
-        for (; ; ) {
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("Введите вариант действий, введите целое число цифрой");
-            System.out.println("1 - Проверка пройдена");
-            System.out.println("2 - Проверка не пройдена");
-            short operCheck = scanner.nextShort();
-            if (operCheck == 1) {
-                break;
-            }
-        }
-
-        System.out.println("Пройдена проверка личности пользователя приложения по имени " + customerName + " (" + customerID + ") по смс через мобильного оператора");
-        return mobileOperatorOk;
-    }
-
-    public void customerApproveActivation() {
-        System.out.println("Магазин дал ок на использование мобильного приложения пользователем по имени " + customerName + " под номером " + customerID);
-    }
-
-    public void customerUnblocking(String customerID, int age) {
-        System.out.println("С пользователя под номером " + customerID + " снята первичная блокировка в биллинге магазина");
-        customer18Older = age >= 18;
-        if (customerVerificationOk && !customer18Older) {
-            System.out.println("В мобильном приложении у пользователя " + customerID + " не будет возможности покупки алкоголя");
-        }
-        customerPensioner = age >= 65;
-        String s1 = customerVerificationOk && customerPensioner ? "Ваш профиль активирован и вам доступны доплнительные скидки на отдельные товары до 10 утра в будние дни" : "Ваш профиль активирован";
-        System.out.println(s1);
-
-    }
 
     public boolean customerDecisionGetInto(String customerID) {
         System.out.println("Покупатель по имени " + customerName + " (" + customerID + ") готова к покупкам в магазине, замерзла пока все это делала на улице :(, но в следующий раз этого ничего не нужно будет");
@@ -171,39 +141,6 @@ public class Customer {
         System.out.println(" ");
     }
 
-    public void customerShelfScan(String name, String customerID) {
-        System.out.println("Покупатель по имени " + name + " (" + customerID + ") хочет найти необходимый ей товар на стеллаже. Сколько полок она видит, введите целое число цифрой");
-        short polkaNumber = scanner.nextShort();
-        System.out.println("Сколько видов товара в каждой полке, введите целое числов цифрой");
-        short kefirNumber = scanner.nextShort();
-        System.out.println("Как просматривать товар вдоль полки, выбери вариант ниже и введи номер варианта одной целой цифрой");
-        System.out.println("1 - просматривать каждый товар на полке");
-        System.out.println("2 - просматривать каждый второй товар на полке");
-        System.out.println("3 - просматривать каждый третий товар на полке");
-        System.out.println("N - просматривать каждый N-й товар на полке (введите любую целую цифру)");
-        short scanOrder = scanner.nextShort();
-        System.out.println("Покупатель по имени " + name + " (" + customerID + ") начала просматривать все товары и искать подходящий ей");
-        for (short l1 = 1; l1 <= polkaNumber; l1++) {
-            for (int l2 = 1; l2 <= kefirNumber; l2 = l2 + (int) scanOrder) {
-                System.out.println("Полка номер " + l1 + " и вид товара номер " + l2);
-            }
-        }
-
-
-    }
-
-    public void customerKefirName(String customerID) {
-        System.out.println("Покупатель по имени " + customerName + " (" + customerID + ") заметила первый нужный ей товар и нашла его ценник");
-        System.out.println("Покупатель по имени " + customerName + " (" + customerID + ") смотрит на ценник кефира и видит основную инфрормацию о продукте");
-        System.out.println("Введите одним словом название кефира выбранного покупателем по имени " + customerName + " (" + customerID + ")");
-        tagsProductNameKefir = scanner.next();
-    }
-
-    public void customerKefirManufacture(String customerID) {
-        System.out.println("Введите одним словом название изготовителя кефира выбранного покупателем по имени " + customerName + " (" + customerID + ")");
-        tagsManufacturerNameKefir = scanner.next();
-
-    }
 
     public double customerKefirPrice(String customerID) {
         System.out.println("Напишите какую цену увидела покупатель по имени " + customerName + " (" + customerID + ") на ценнике кефира в виде числа с дробной частью после запятой");
@@ -229,19 +166,7 @@ public class Customer {
 
     }
 
-    public void customerCheeseName() {
-        System.out.println("Покупатель по имени " + customerName + " (" + customerID + ") заметила второй нужный ей товар и нашла его ценник");
-        System.out.println("Покупатель по имени " + customerName + " (" + customerID + ") смотрит на ценник сыра и видит основную инфрормацию о продукте");
-        System.out.println("Введите одним словом название сыра выбранного покупателем по имени " + customerName + " (" + customerID + ")");
-        tagsProductNameCheese = scanner.next();
 
-    }
-
-    public void customerCheeseManufacture() {
-        System.out.println("Введите одним словом название изготовителя сыра под названием " + tagsProductNameCheese + " выбранного покупателем по имени " + customerName + " (" + customerID + ")");
-        tagsManufacturerNameCheese = scanner.next();
-
-    }
 
     public double customerCheesePrice() {
         System.out.println("Напишите какую цену увидела покупатель по имени " + customerName + " (" + customerID + ") на ценнике сыра в виде числа с дробной частью после запятой");
@@ -311,6 +236,90 @@ public class Customer {
         System.out.println(" ");
     }
 
+
+    private boolean customerVerivication(String customerID) {
+        boolean mobileOperatorOk = true;
+        customerVerificationOk = mobileOperatorOk;
+        System.out.println("Покупатель по имени " + customerName + " (" + customerID + ") начала проверку через мобильного оператора");
+        for (; ; ) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Введите вариант действий, введите целое число цифрой");
+            System.out.println("1 - Проверка пройдена");
+            System.out.println("2 - Проверка не пройдена");
+            short operCheck = scanner.nextShort();
+            if (operCheck == 1) {
+                break;
+            }
+        }
+
+        System.out.println("Пройдена проверка личности пользователя приложения по имени " + customerName + " (" + customerID + ") по смс через мобильного оператора");
+        return mobileOperatorOk;
+    }
+
+    private void customerApproveActivation() {
+        System.out.println("Магазин дал ок на использование мобильного приложения пользователем по имени " + customerName + " под номером " + customerID);
+    }
+
+    private void customerUnblocking(String customerID, int age) {
+        System.out.println("С пользователя под номером " + customerID + " снята первичная блокировка в биллинге магазина");
+        customer18Older = age >= 18;
+        if (customerVerificationOk && !customer18Older) {
+            System.out.println("В мобильном приложении у пользователя " + customerID + " не будет возможности покупки алкоголя");
+        }
+        customerPensioner = age >= 65;
+        String s1 = customerVerificationOk && customerPensioner ? "Ваш профиль активирован и вам доступны доплнительные скидки на отдельные товары до 10 утра в будние дни" : "Ваш профиль активирован";
+        System.out.println(s1);
+
+    }
+
+    private void customerShelfScan(String name, String customerID) {
+        System.out.println("Покупатель по имени " + name + " (" + customerID + ") хочет найти необходимый ей товар на стеллаже. Сколько полок она видит, введите целое число цифрой");
+        short polkaNumber = scanner.nextShort();
+        System.out.println("Сколько видов товара в каждой полке, введите целое числов цифрой");
+        short kefirNumber = scanner.nextShort();
+        System.out.println("Как просматривать товар вдоль полки, выбери вариант ниже и введи номер варианта одной целой цифрой");
+        System.out.println("1 - просматривать каждый товар на полке");
+        System.out.println("2 - просматривать каждый второй товар на полке");
+        System.out.println("3 - просматривать каждый третий товар на полке");
+        System.out.println("N - просматривать каждый N-й товар на полке (введите любую целую цифру)");
+        short scanOrder = scanner.nextShort();
+        System.out.println("Покупатель по имени " + name + " (" + customerID + ") начала просматривать все товары и искать подходящий ей");
+        for (short l1 = 1; l1 <= polkaNumber; l1++) {
+            for (int l2 = 1; l2 <= kefirNumber; l2 = l2 + (int) scanOrder) {
+                System.out.println("Полка номер " + l1 + " и вид товара номер " + l2);
+            }
+        }
+
+
+    }
+
+    private void customerKefirName(String customerID) {
+        System.out.println("Покупатель по имени " + customerName + " (" + customerID + ") заметила первый нужный ей товар и нашла его ценник");
+        System.out.println("Покупатель по имени " + customerName + " (" + customerID + ") смотрит на ценник кефира и видит основную инфрормацию о продукте");
+        System.out.println("Введите одним словом название кефира выбранного покупателем по имени " + customerName + " (" + customerID + ")");
+        tagsProductNameKefir = scanner.next();
+    }
+
+    private void customerKefirManufacture(String customerID) {
+        System.out.println("Введите одним словом название изготовителя кефира выбранного покупателем по имени " + customerName + " (" + customerID + ")");
+        tagsManufacturerNameKefir = scanner.next();
+
+    }
+
+    private void customerCheeseName() {
+        System.out.println("Покупатель по имени " + customerName + " (" + customerID + ") заметила второй нужный ей товар и нашла его ценник");
+        System.out.println("Покупатель по имени " + customerName + " (" + customerID + ") смотрит на ценник сыра и видит основную инфрормацию о продукте");
+        System.out.println("Введите одним словом название сыра выбранного покупателем по имени " + customerName + " (" + customerID + ")");
+        tagsProductNameCheese = scanner.next();
+
+    }
+
+
+    private void customerCheeseManufacture() {
+        System.out.println("Введите одним словом название изготовителя сыра под названием " + tagsProductNameCheese + " выбранного покупателем по имени " + customerName + " (" + customerID + ")");
+        tagsManufacturerNameCheese = scanner.next();
+
+    }
 
     public String getCustomerName() {
         return customerName;
