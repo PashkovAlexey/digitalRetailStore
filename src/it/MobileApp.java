@@ -11,6 +11,7 @@ public class MobileApp extends IT {
     private String mobAppDeviceInfo;
     private String mobAppSystemRequirements;
     private String modAppCustomerId;
+    private DigitalCheque chequeForClient;
 
     private BackEndAPI apiCredetials = new BackEndAPI();
 
@@ -69,7 +70,7 @@ public class MobileApp extends IT {
 
         String chequeDateAndTime = "18:20 2" + dayNumber + ".12.2021 года";
         double chequeInfoPurchaseSumm = kefirPrice + cheesePrice;
-        DigitalCheque chequeForClient = new DigitalCheque(chequeStoreName, "https://5ka.ru/", "8-800-555-55-05", chequeDateAndTime, "г.Москва, ул.Центральная, д.33", chequeInfoPurchaseSumm, bonusPaid, bonusAdded);
+        chequeForClient = new DigitalCheque(chequeStoreName, "https://5ka.ru/", "8-800-555-55-05", chequeDateAndTime, "г.Москва, ул.Центральная, д.33", chequeInfoPurchaseSumm, bonusPaid, bonusAdded);
         System.out.println("Электронный чек");
         System.out.println("Магазин " + chequeForClient.getChequeStoreName());
         System.out.println(chequeForClient.getChequeInternetAddress());
