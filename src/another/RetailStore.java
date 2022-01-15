@@ -204,6 +204,10 @@ public class RetailStore {
         System.out.println(" ");
     }
 
+    @Override
+    public String toString() {
+        return storeDescription;
+    }
 
     public String getStoreDescription() {
         return storeDescription;

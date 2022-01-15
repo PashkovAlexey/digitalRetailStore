@@ -12,7 +12,6 @@ public class MobileApp extends IT {
     private String mobAppSystemRequirements;
     private String modAppCustomerId;
     private DigitalCheque chequeForClient;
-
     private BackEndAPI apiCredetials = new BackEndAPI();
 
     Scanner scanner = new Scanner(System.in);
@@ -154,5 +153,14 @@ public class MobileApp extends IT {
     public void setModAppCustomerId(String modAppCustomerId) {
         this.modAppCustomerId = modAppCustomerId;
     }
+
+    public DigitalCheque getChequeForClient() {
+        return chequeForClient;
+    }
+
+    public void setChequeForClient(DigitalCheque chequeForClient) {
+        this.chequeForClient = chequeForClient;
+    }
+
 
 }

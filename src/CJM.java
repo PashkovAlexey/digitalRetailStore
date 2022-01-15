@@ -74,6 +74,7 @@ public class CJM {
         human.customerBonusStatistics(pyaterochka.getStoreBonusSum(), bonus.getBonusNumberOfPoints(), bonusPayment, bonusAdded);
         bonus.bonusMassive(pyaterochka.getStoreDescription(), human.getCustomerName(), human.getCustomerID(), bonusPayment, bonusAdded, human.getNumberOfDays());
         pyaterochka.storePurchaseStatistics(kefirMassive, cheeseMassive, human.getNumberOfDays());
+        System.out.println("Название этого магазина " + pyaterochka.toString());
         System.out.println("Этот код на GitHub по ссылке https://github.com/PashkovAlexey/digitalRetailStore.git");
 
     }
