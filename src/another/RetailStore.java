@@ -117,6 +117,8 @@ public class RetailStore {
         toStringMethod(kefirMassive, cheeseMassive, numberOfDays);
         hashCodeMethod(kefirMassive, cheeseMassive, numberOfDays);
         equalsMethod(kefirMassive, cheeseMassive, numberOfDays);
+        getClassMethod(kefirMassive, cheeseMassive, numberOfDays);
+        cloneMethod(kefirMassive, cheeseMassive, numberOfDays);
         System.out.println(" ");
     }
 
@@ -149,7 +151,27 @@ public class RetailStore {
         }
     }
 
+    private void getClassMethod (Kefir[] kefirMassive, Cheese[] cheeseMassive, Integer numberOfDays) {
+        System.out.println(" ");
+        System.out.println("Работа с методом getClass");
+        for (Integer dayNumber = 2 ; dayNumber <= numberOfDays; dayNumber++){
+            System.out.println(kefirMassive[dayNumber-2].getClass().toString() + " / " + kefirMassive[dayNumber-2].getClass().getCanonicalName() + " / " + kefirMassive[dayNumber-2].getClass().getPackage());
+            System.out.println(cheeseMassive[dayNumber-2].getClass().toString() + " / " + cheeseMassive[dayNumber-2].getClass().getCanonicalName() + " / " + cheeseMassive[dayNumber-2].getClass().getPackage());
+        }
+    }
 
+    private void cloneMethod (Kefir[] kefirMassive, Cheese[] cheeseMassive, Integer numberOfDays) {
+        System.out.println(" ");
+        System.out.println("Работа с методом clone");
+        Kefir [] clonedKefir;
+        Cheese [] clonedCheese;
+        for (Integer dayNumber = 1 ; dayNumber <= numberOfDays; dayNumber++){
+            clonedKefir = kefirMassive.clone();
+            clonedCheese = cheeseMassive.clone();
+            System.out.println("Клонирование кефира удалось? = " + clonedKefir[dayNumber-1].equals(kefirMassive[dayNumber-1]));
+            System.out.println("Клонирование сыра удалось? = " + clonedCheese[dayNumber-1].equals(cheeseMassive[dayNumber-1]));
+        }
+    }
 
     private void storePurchase(String storeName) {
         System.out.println("В магазине под названием " + storeName + " совершена покупка");
