@@ -76,7 +76,7 @@ public class CJM {
         pyaterochka.storePurchaseStatistics(kefirMassive, cheeseMassive, human.getNumberOfDays());
         pyaterochka.storeObjectsMethods(kefirMassive, cheeseMassive, human.getNumberOfDays());
         System.out.println("Название этого магазина " + pyaterochka.toString());
-        System.out.println("Этот код на GitHub по ссылке https://github.com/PashkovAlexey/digitalRetailStore.git");
+        System.out.println("Этот код на GitHub по ссылке https://github.com/PashkovAlexey/digitalRetailStore.git ");
 
     }
 }
