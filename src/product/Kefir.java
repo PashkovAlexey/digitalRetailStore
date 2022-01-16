@@ -1,6 +1,7 @@
 package product;
 
 import java.text.DecimalFormat;
+import java.util.Objects;
 
 public class Kefir extends DairyProduct {
 
@@ -39,6 +40,7 @@ public class Kefir extends DairyProduct {
     public String toString() {
         return "Товар " + KEFIRPRODUCTTYPENAME + " под названием " + getProductName() + " по цене " + df2.format(getProductPrice()) + " изготовленный " + getProductDateOfProduction() + " объемом " + df1.format(kefirVolume) + ". Упаковка " + getDairyKindOfPackage() + ". Жирность " + getDairyFats() + ". Калорийность " + getDairyCalorie();
     }
+
 
 
     public double getKefirVolume() {

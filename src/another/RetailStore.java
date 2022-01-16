@@ -112,6 +112,43 @@ public class RetailStore {
 
     }
 
+    public void storeObjectsMethods (Kefir[] kefirMassive, Cheese[] cheeseMassive, Integer numberOfDays){
+        System.out.println("Работа с методами класса Object");
+        toStringMethod(kefirMassive, cheeseMassive, numberOfDays);
+        hashCodeMethod(kefirMassive, cheeseMassive, numberOfDays);
+        equalsMethod(kefirMassive, cheeseMassive, numberOfDays);
+        System.out.println(" ");
+    }
+
+
+
+    private void toStringMethod (Kefir[] kefirMassive, Cheese[] cheeseMassive, Integer numberOfDays) {
+        System.out.println(" ");
+        System.out.println("Работа с методом toString");
+        for (Integer dayNumber = 1 ; dayNumber <= numberOfDays; dayNumber++){
+            System.out.println(kefirMassive[dayNumber-1].toString());
+            System.out.println(cheeseMassive[dayNumber-1].toString());
+        }
+    }
+
+    private void hashCodeMethod (Kefir[] kefirMassive, Cheese[] cheeseMassive, Integer numberOfDays) {
+        System.out.println(" ");
+        System.out.println("Работа с методом hashCode");
+        for (Integer dayNumber = 1 ; dayNumber <= numberOfDays; dayNumber++){
+            System.out.println(kefirMassive[dayNumber-1].hashCode() + " " + kefirMassive[dayNumber-1].getProductTypeName());
+            System.out.println(cheeseMassive[dayNumber-1].hashCode() + " " + cheeseMassive[dayNumber-1].getProductTypeName());
+        }
+    }
+
+    private void equalsMethod (Kefir[] kefirMassive, Cheese[] cheeseMassive, Integer numberOfDays) {
+        System.out.println(" ");
+        System.out.println("Работа с методом equals");
+        for (Integer dayNumber = 2 ; dayNumber <= numberOfDays; dayNumber++){
+            System.out.println(kefirMassive[dayNumber-2].equals(kefirMassive[dayNumber-1]));
+            System.out.println(cheeseMassive[dayNumber-2].equals(cheeseMassive[dayNumber-1]));
+        }
+    }
+
 
 
     private void storePurchase(String storeName) {
@@ -203,6 +240,8 @@ public class RetailStore {
         }
         System.out.println(" ");
     }
+
+
 
     @Override
     public String toString() {
