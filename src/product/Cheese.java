@@ -1,6 +1,7 @@
 package product;
 
 import java.text.DecimalFormat;
+import java.util.Objects;
 
 public class Cheese extends DairyProduct {
 
@@ -37,8 +38,6 @@ public class Cheese extends DairyProduct {
     public String toString() {
         return "Товар " + CHEESEPRODUCTTYPENAME + " под названием " + getProductName() + " по цене " + df2.format(getProductPrice()) + " изготовленный " + getProductDateOfProduction() + " массой " + df1.format(cheeseWeight) + ". Упаковка " + getDairyKindOfPackage() + ". Жирность " + getDairyFats();
     }
-
-
 
     public double getCheeseWeight() {
         return cheeseWeight;
