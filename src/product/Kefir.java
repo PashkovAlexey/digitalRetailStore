@@ -41,7 +41,18 @@ public class Kefir extends DairyProduct {
         return "Товар " + KEFIRPRODUCTTYPENAME + " под названием " + getProductName() + " по цене " + df2.format(getProductPrice()) + " изготовленный " + getProductDateOfProduction() + " объемом " + df1.format(kefirVolume) + ". Упаковка " + getDairyKindOfPackage() + ". Жирность " + getDairyFats() + ". Калорийность " + getDairyCalorie();
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Kefir)) return false;
+        Kefir kefir = (Kefir) o;
+        return Double.compare(kefir.kefirVolume, kefirVolume) == 0;
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(kefirVolume);
+    }
 
     public double getKefirVolume() {
         return kefirVolume;
