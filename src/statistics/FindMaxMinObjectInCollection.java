@@ -5,7 +5,7 @@ import product.Product;
 import java.text.DecimalFormat;
 import java.util.List;
 
-public interface FindMaxMinObjectInCollection {
+public interface FindMaxMinObjectInCollection extends FindInterface {
 
     DecimalFormat df = new DecimalFormat("#.00");
 

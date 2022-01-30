@@ -1,13 +1,12 @@
 package statistics;
 
-import product.Kefir;
 import product.Product;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public interface FindAverageValues {
+public interface FindAverageValues extends FindInterface {
 
     DecimalFormat df = new DecimalFormat("#.00");
 

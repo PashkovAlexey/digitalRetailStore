@@ -4,7 +4,7 @@ import product.Product;
 
 import java.util.List;
 
-public class BoughtProductsStatistics extends BusinessStatistics implements FindMaxMinObjectInCollection, FindAverageValues {
+public class BoughtProductsStatistics extends BusinessStatistics implements FindMaxMinObjectInCollection, FindAverageValues, FindSums {
     public static String BPNAME;
     static {
         BPNAME = "Статистика купленных товаров";
@@ -21,6 +21,9 @@ public class BoughtProductsStatistics extends BusinessStatistics implements Find
         printAverageCostPerProduct(allBoughtProducts);
         printAverageCostOfKefir(allBoughtProducts);
         printAverageCostOfCheese(allBoughtProducts);
+        printSumOfAllProducts(allBoughtProducts);
+        printSumOfKefir(allBoughtProducts);
+        printSumOfCheese(allBoughtProducts);
     }
 
 }
