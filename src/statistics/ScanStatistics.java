@@ -1,20 +1,17 @@
-package it;
+package statistics;
 import product.Cheese; import product.Kefir; import product.Product;
 import java.text.DecimalFormat; import java.util.ArrayList; import java.util.Collection; import java.util.Random;
 
-public class BusinessStatistics {
-    public static String BSNAME;
+public class ScanStatistics extends BusinessStatistics{
+    public static String SSNAME;
     static {
-        BSNAME = "Бизнес статистика продаж";
+        SSNAME = "Статистика сканирования товаров";
     }
 
     Collection<Product> allScansOfProducts = new ArrayList<>();
     Random random = new Random();
     DecimalFormat df = new DecimalFormat("#.00");
 
-    public BusinessStatistics() {
-
-    }
 
     public void addToScanCollection(Kefir[] kefirMassive, Cheese[] cheeseMassive, Integer numberOfDays){
         for (int i = 0; i < numberOfDays; i++){
@@ -36,6 +33,8 @@ public class BusinessStatistics {
     }
 
     private void commonStatisticsOfAllScans(Kefir[] kefirMassive, Cheese[] cheeseMassive) {
+        System.out.println(" ");
+        System.out.println(SSNAME);
         System.out.println(allScansOfProducts.size() + " - суммарное количество сканов купленных товаров до того как они были куплены");
         double scanPerPurchaseAverage = (double)allScansOfProducts.size() / ((double)kefirMassive.length + (double)cheeseMassive.length);
         System.out.println(df.format(scanPerPurchaseAverage) + " - среднее количество сканов на одну покупку одного товара, конверсия контактов клиентов с товарами до покупки");
