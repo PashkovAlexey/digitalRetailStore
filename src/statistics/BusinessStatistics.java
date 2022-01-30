@@ -17,6 +17,7 @@ public abstract class BusinessStatistics {
         scanStat.addToScanCollection(kefirMassive, cheeseMassive, numberOfDays);
         BoughtProductsStatistics boughtProductsStat = new BoughtProductsStatistics();
         boughtProductsStat.printInfo(allBoughtProducts);
+
     }
 
 
