@@ -1,17 +1,11 @@
 package it;
 
-import java.text.DecimalFormat;
-import java.util.Random;
-import java.util.Scanner;
-
+import java.text.DecimalFormat; import java.util.Random; import java.util.Scanner;
 public class BackEndAPI extends IT {
-
     private String backLogin;
     private String backPassword;
     private String backGiveDomain;
-
     Scanner scanner = new Scanner(System.in);
-
     {
       System.out.println("Выберите какой будете использовать домен для доступа к платформе магазина");
       System.out.println("1 - https://5ka.ru/");
@@ -24,13 +18,9 @@ public class BackEndAPI extends IT {
           backGiveDomain = "https://api.5ka.ru/";
       }
     }
-
     Random random = new Random();
     DecimalFormat df = new DecimalFormat("000000000");
-
-    public BackEndAPI() {
-
-    }
+    public BackEndAPI() { }
 
     public String backGiveDomain() {
         return backGiveDomain;
@@ -48,11 +38,9 @@ public class BackEndAPI extends IT {
         return backPassword;
     }
 
-
     public String getBackLogin() {
         return backLogin;
     }
-
     public void setBackLogin(String backLogin) {
         this.backLogin = backLogin;
     }
@@ -60,7 +48,6 @@ public class BackEndAPI extends IT {
     public String getBackPassword() {
         return backPassword;
     }
-
     public void setBackPassword(String backPassword) {
         this.backPassword = backPassword;
     }
@@ -68,7 +55,6 @@ public class BackEndAPI extends IT {
     public String getBackGiveDomain() {
         return backGiveDomain;
     }
-
     public void setBackGiveDomain(String backGiveDomain) {
         this.backGiveDomain = backGiveDomain;
     }

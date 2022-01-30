@@ -1,20 +1,13 @@
-import another.Customer;
-import another.RetailStore;
-import it.BonusSystem;
-import it.MobileApp;
-import product.Cheese;
-import product.Kefir;
-import retailStoreEquipment.DigitalPriceTag;
-
+import another.Customer; import another.RetailStore; import it.BonusSystem;
+import it.BusinessStatistics;
+import it.MobileApp; import product.Cheese; import product.Kefir; import retailStoreEquipment.DigitalPriceTag;
 public class CJM {
     public static void main(String[] args) {
         Customer.customerStart();
         Customer human = new Customer("", "", false, false, false);
         MobileApp mobAppHuman = new MobileApp("Мобильное приложение магазина", "Канал обслуживания и продаж", "", "", "", "");
         human.customerNameAge();
-        if (human.customerDecision()) {
-            return;
-        }
+        if (human.customerDecision()) { return; }
         mobAppHuman.mobAppDeviceInfoDownloadInstall(human.getCustomerName());
         human.setCustomerID(mobAppHuman.getModAppCustomerId());
         mobAppHuman.mobAppOpen(human.getCustomerName(), human.getCustomerID());
@@ -22,17 +15,10 @@ public class CJM {
         BonusSystem bonus = new BonusSystem("Система бонусных баллов", "повышение лояльности, рост NPS", "30.12.2021", 0, mobAppHuman.getModAppCustomerId());
         bonus.bonusActivate(human.getCustomerName(), mobAppHuman.getModAppCustomerId());
         mobAppHuman.itSystemUpgrade();
-        if (human.customerDecisionGetInto(mobAppHuman.getModAppCustomerId())) {
-            return;
-        }
+        if (human.customerDecisionGetInto(mobAppHuman.getModAppCustomerId())) { return;  }
         RetailStore pyaterochka = new RetailStore("Пятерочка", 0, 0, 0);
         human.customerNumberOfDays(pyaterochka.getStoreDescription());
-        double[] tagsPriceKefir = new double[human.getNumberOfDays()];
-        double[] tagsPriceCheese = new double[human.getNumberOfDays()];
-        double[] bonusPayment = new double[human.getNumberOfDays()];
-        double[] bonusAdded = new double[human.getNumberOfDays()];
-        Kefir [] kefirMassive = new Kefir[human.getNumberOfDays()];
-        Cheese [] cheeseMassive = new Cheese[human.getNumberOfDays()];
+        double[] tagsPriceKefir = new double[human.getNumberOfDays()]; double[] tagsPriceCheese = new double[human.getNumberOfDays()]; double[] bonusPayment = new double[human.getNumberOfDays()]; double[] bonusAdded = new double[human.getNumberOfDays()]; Kefir [] kefirMassive = new Kefir[human.getNumberOfDays()]; Cheese [] cheeseMassive = new Cheese[human.getNumberOfDays()];
         for (int dayNumber = 1; dayNumber <= human.getNumberOfDays(); dayNumber++) {
             mobAppHuman.mobAppScanQrOpenDoor(dayNumber);
 
@@ -75,8 +61,10 @@ public class CJM {
         bonus.bonusMassive(pyaterochka.getStoreDescription(), human.getCustomerName(), human.getCustomerID(), bonusPayment, bonusAdded, human.getNumberOfDays());
         pyaterochka.storePurchaseStatistics(kefirMassive, cheeseMassive, human.getNumberOfDays());
         pyaterochka.storeObjectsMethods(kefirMassive, cheeseMassive, human.getNumberOfDays());
+        BusinessStatistics businessStat = new BusinessStatistics();
+        businessStat.addToScanCollection(kefirMassive, cheeseMassive, human.getNumberOfDays());
+        System.out.println("");
         System.out.println("Название этого магазина " + pyaterochka.toString());
         System.out.println("Этот код на GitHub по ссылке https://github.com/PashkovAlexey/digitalRetailStore.git ");
-
     }
 }
