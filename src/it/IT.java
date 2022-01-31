@@ -1,6 +1,6 @@
 package it;
 
-public class IT {
+public abstract class IT {
 
     private String itSystemName;
     private String itSystemPurpose;
