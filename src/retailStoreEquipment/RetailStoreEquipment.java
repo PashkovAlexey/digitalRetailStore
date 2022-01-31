@@ -1,6 +1,6 @@
 package retailStoreEquipment;
 
-public class RetailStoreEquipment {
+public abstract class RetailStoreEquipment {
 
     private String retailEquipmentName;
 

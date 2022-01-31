@@ -1,7 +1,7 @@
 package product;
 
 
-public class DairyProduct extends Product {
+public abstract class DairyProduct extends Product {
 
     private double dairyFats;
     private int dairyCalorie;
