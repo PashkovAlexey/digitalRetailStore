@@ -21,7 +21,7 @@ public interface FindAverageValues extends FindInterface {
     default void printAverageCostOfKefir (List<Product> allBoughtProducts){
         List<Product> kefirBought = new ArrayList<>();
         for (Product kefirFound : allBoughtProducts){
-            if (kefirFound.getProductTypeName() == "кефир"){
+            if (kefirFound.getProductTypeName().equals("кефир")){
                 kefirBought.add(kefirFound);
             }
         }
@@ -34,7 +34,7 @@ public interface FindAverageValues extends FindInterface {
     default void printAverageCostOfCheese (List<Product> allBoughtProducts){
         List<Product> cheeseBought = new ArrayList<>();
         for (Product cheeseFound : allBoughtProducts){
-            if (cheeseFound.getProductTypeName() == "сыр"){
+            if (cheeseFound.getProductTypeName().equals("сыр")){
                 cheeseBought.add(cheeseFound);
             }
         }

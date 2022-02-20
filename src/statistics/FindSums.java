@@ -24,7 +24,7 @@ public interface FindSums extends FindInterface {
 
     private void lookingForKefir(List<Product> allBoughtProducts, List<Product> kefirBought) {
         for (Product kefirFound : allBoughtProducts){
-            if (kefirFound.getProductTypeName() == "кефир"){
+            if (kefirFound.getProductTypeName().equals("кефир")){
                 kefirBought.add(kefirFound);
             }
         }
@@ -32,7 +32,7 @@ public interface FindSums extends FindInterface {
 
     default void printSumOfCheese (List<Product> allBoughtProducts){
         List<Product> cheeseBought = new ArrayList<>();
-        lookingForCheese(allBoughtProducts, cheeseBought, "сыр");
+        lookingForCheese(allBoughtProducts, cheeseBought);
         double sumCheese = 0;
         for (int i = 0; i < cheeseBought.size(); i++) {
             sumCheese = sumCheese + cheeseBought.get(i).getProductPrice();
@@ -40,9 +40,9 @@ public interface FindSums extends FindInterface {
         System.out.println(df.format(sumCheese) + " - сумма покупки всех товаров типа сыр, " + cheeseBought.size() + " штук/штуки.");
     }
 
-    private void lookingForCheese(List<Product> allBoughtProducts, List<Product> cheeseBought, String сыр) {
+    private void lookingForCheese(List<Product> allBoughtProducts, List<Product> cheeseBought) {
         for (Product cheeseFound : allBoughtProducts) {
-            if (cheeseFound.getProductTypeName() == сыр) {
+            if (cheeseFound.getProductTypeName().equals("сыр")) {
                 cheeseBought.add(cheeseFound);
             }
         }

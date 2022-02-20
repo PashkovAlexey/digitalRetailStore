@@ -10,7 +10,7 @@ public class BackEndAPI extends IT {
       System.out.println("Выберите какой будете использовать домен для доступа к платформе магазина");
       System.out.println("1 - https://5ka.ru/");
       System.out.println("2 - https://api.5ka.ru/");
-      System.out.println("Введите одно целове число из вариантов ниже");
+      System.out.println("Введите одно целове число из вариантов выше");
       int choice = scanner.nextInt();
       if (choice == 1){
           backGiveDomain = "https://5ka.ru/";

@@ -2,7 +2,7 @@ package product;
 
 import java.util.Objects;
 
-public abstract class Product {
+public class Product {
 
     private String productName;
     private double productPrice;
@@ -103,5 +103,13 @@ public abstract class Product {
         this.productTypeName = productTypeName;
     }
 
+
+    public String toString2() {
+        return  "productName=" + productName + " " +
+                "productPrice=" + productPrice + " " +
+                "productDateOfProduction=" + productDateOfProduction + " " +
+                "productBarCode=" + productBarCode + " " +
+                "productTypeName=" + productTypeName + " ";
+    }
 
 }
