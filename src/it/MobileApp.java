@@ -3,6 +3,8 @@ package it;
 import another.DigitalCheque;
 
 import java.text.DecimalFormat;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
 
 public class MobileApp extends IT {
@@ -65,11 +67,12 @@ public class MobileApp extends IT {
         System.out.println("Выбранные продукты оплачены в мобильном приложении " + mobAppID);
     }
 
-    public void mobAppGiveCheque(String chequeStoreName, int dayNumber, double kefirPrice, double cheesePrice, double bonusPaid, double bonusAdded, String kefirName, String cheeseName) {
+    public void mobAppGiveCheque(String chequeStoreName, int dayNumber, double kefirPrice, double cheesePrice, double bonusPaid, double bonusAdded, String kefirName, String cheeseName, List<DigitalCheque> chequeList) {
 
         String chequeDateAndTime = "18:20 2" + dayNumber + ".12.2021 года";
         double chequeInfoPurchaseSumm = kefirPrice + cheesePrice;
         chequeForClient = new DigitalCheque(chequeStoreName, "https://5ka.ru/", "8-800-555-55-05", chequeDateAndTime, "г.Москва, ул.Центральная, д.33", chequeInfoPurchaseSumm, bonusPaid, bonusAdded);
+        chequeList.add(chequeForClient);
         System.out.println("Электронный чек");
         System.out.println("Магазин " + chequeForClient.getChequeStoreName());
         System.out.println(chequeForClient.getChequeInternetAddress());
