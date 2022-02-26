@@ -6,7 +6,6 @@ import it.MobileApp; import product.Cheese; import product.Kefir; import retailS
 import writeReadDB.AllDBActions;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class CJM {

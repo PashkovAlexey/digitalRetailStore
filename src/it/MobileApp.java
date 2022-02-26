@@ -109,7 +109,7 @@ public class MobileApp extends IT {
         modAppCustomerId = apiCredetials.backGiveLogin();
         System.out.println("id App клиента: " + modAppCustomerId);
         System.out.println("пароль App клиента: " + apiCredetials.backGivePassword(customerName));
-        System.out.println("Доменное имя: " + apiCredetials.backGiveDomain());
+        System.out.println("Доменное имя: " + apiCredetials.getBackGiveDomain());
         System.out.println(" ");
     }
 
