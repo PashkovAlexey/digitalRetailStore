@@ -14,7 +14,7 @@ public interface APIDomainInitialization {
         printStartInfo();
         int choice = choose();
         try {
-            backGiveDomain = ifDo(choice);
+            backGiveDomain = processChoice(choice);
         } catch (ChoiceException e){
             backGiveDomain = defaultBackGiveDomain;
             System.out.println(e.getMessage());
@@ -45,7 +45,7 @@ public interface APIDomainInitialization {
         System.out.println("Введите одно целове число из вариантов выше");
     }
 
-    private String ifDo (int choice) throws ChoiceException {
+    private String processChoice(int choice) throws ChoiceException {
         String domain = "";
         if (choice == 0){
             throw new ChoiceException("Выбран неверный вариант", choice);
