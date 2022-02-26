@@ -1,22 +1,13 @@
 package it;
 
-import java.text.DecimalFormat; import java.util.Random; import java.util.Scanner;
-public class BackEndAPI extends IT {
+import java.text.DecimalFormat; import java.util.Random;
+public class BackEndAPI extends IT implements APIDomainInitialization {
     private String backLogin;
     private String backPassword;
     private String backGiveDomain;
-    Scanner scanner = new Scanner(System.in);
     {
-      System.out.println("Выберите какой будете использовать домен для доступа к платформе магазина");
-      System.out.println("1 - https://5ka.ru/");
-      System.out.println("2 - https://api.5ka.ru/");
-      System.out.println("Введите одно целове число из вариантов выше");
-      int choice = scanner.nextInt();
-      if (choice == 1){
-          backGiveDomain = "https://5ka.ru/";
-      } else if (choice == 2) {
-          backGiveDomain = "https://api.5ka.ru/";
-      }
+        backGiveDomain = APIDomainInitialize();
+
     }
     Random random = new Random();
     DecimalFormat df = new DecimalFormat("000000000");
