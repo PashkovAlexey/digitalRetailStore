@@ -14,17 +14,7 @@ public interface APIDomainInitialization {
         printStartInfo();
         int choice = choose();
         try {
-            if (choice == 0){
-                throw new ChoiceException("Выбран неверный вариант", choice);
-            } else if (choice == 1){
-                backGiveDomain = defaultBackGiveDomain;
-                System.out.println("Выбран доступ через " + backGiveDomain);
-            } else if (choice == 2){
-                backGiveDomain = "https://api.5ka.ru/";
-                System.out.println("Выбран доступ через " + backGiveDomain);
-            } else if (choice > 2){
-                throw new ChoiceException("Выбран неверный вариант", choice);
-            }
+            backGiveDomain = ifDo(choice);
         } catch (ChoiceException e){
             backGiveDomain = defaultBackGiveDomain;
             System.out.println(e.getMessage());
@@ -54,6 +44,23 @@ public interface APIDomainInitialization {
         System.out.println("2 - https://api.5ka.ru/");
         System.out.println("Введите одно целове число из вариантов выше");
     }
+
+    private String ifDo (int choice) throws ChoiceException {
+        String domain = "";
+        if (choice == 0){
+            throw new ChoiceException("Выбран неверный вариант", choice);
+        } else if (choice == 1){
+            domain = defaultBackGiveDomain;
+            System.out.println("Выбран доступ через " + domain);
+        } else if (choice == 2){
+            domain = "https://api.5ka.ru/";
+            System.out.println("Выбран доступ через " + domain);
+        } else if (choice > 2){
+            throw new ChoiceException("Выбран неверный вариант", choice);
+        }
+        return domain;
+    }
+
 
 
 }
