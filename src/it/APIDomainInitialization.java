@@ -34,6 +34,9 @@ public interface APIDomainInitialization {
             System.out.println("Вами введен текст вместо цифры");
             System.out.println("Из-за ошибки выбора устанавливается вариант по умолчанию номер один: " + defaultBackGiveDomain);
             choice = 1;
+        } catch (Exception e){
+            System.out.println("Из-за ошибки выбора устанавливается вариант по умолчанию номер один: " + defaultBackGiveDomain);
+            choice = 1;
         }
         return choice;
     }
@@ -47,7 +50,7 @@ public interface APIDomainInitialization {
 
     private String processChoice(int choice) throws ChoiceException {
         String domain = "";
-        if (choice == 0){
+        if (choice < 1){
             throw new ChoiceException("Выбран неверный вариант", choice);
         } else if (choice == 1){
             domain = defaultBackGiveDomain;
