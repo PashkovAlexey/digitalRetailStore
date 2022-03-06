@@ -6,15 +6,14 @@ import java.util.Scanner;
 public class AllCJM {
 
     public static void main(String[] args) throws Exception {
-        Scanner sc = new Scanner(System.in);
         int cjmChoice = 0;
         while (true) {
             printOnTheScreen();
             try {
+                Scanner sc = new Scanner(System.in);
                 cjmChoice = sc.nextInt();
             } catch (InputMismatchException e) {
-                System.out.println("Вы ввели буквы, необходимо было ввести целое число");
-                cjmChoice = 3;
+                cjmChoice = 0;
             }
             if (choiceProcess(cjmChoice)) break;
         }
@@ -29,7 +28,7 @@ public class AllCJM {
         } else if (cjmChoice == 3) {
             return true;
         } else {
-            System.out.println("Вы не выбрали вариант, попробуйте снова");
+            System.out.println("Ошибка: Вы не выбрали вариант, попробуйте снова, программа работает");
         }
         return false;
     }
