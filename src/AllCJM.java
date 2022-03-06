@@ -1,4 +1,5 @@
 import A.CJM.Acjm;
+import B.CJM.Bcjm;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -7,16 +8,15 @@ public class AllCJM {
 
     public static void main(String[] args) throws Exception {
         int cjmChoice = 0;
-        while (true) {
+        do {
             printOnTheScreen();
             try {
                 Scanner sc = new Scanner(System.in);
                 cjmChoice = sc.nextInt();
             } catch (InputMismatchException e) {
-                cjmChoice = 0;
+                cjmChoice = -10;
             }
-            if (choiceProcess(cjmChoice)) break;
-        }
+        } while (!choiceProcess(cjmChoice));
         printTheEnd();
     }
 
@@ -24,7 +24,7 @@ public class AllCJM {
         if (cjmChoice == 1) {
             Acjm.aCJMStart();
         } else if (cjmChoice == 2) {
-            System.out.println("В работе");
+            Bcjm.bCJMStart();
         } else if (cjmChoice == 3) {
             return true;
         } else {
