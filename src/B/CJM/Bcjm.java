@@ -1,5 +1,7 @@
 package B.CJM;
 
+import B.combinations.CombiBuilderApp;
+
 import java.util.Scanner;
 
 public abstract class Bcjm {
@@ -22,9 +24,7 @@ public abstract class Bcjm {
         if (prodChoice == 1) {
             ProductFactoryApp.ProductFactoryAppMainMethod();
         } else if (prodChoice == 2) {
-            System.out.println("Второй вариант в работе");
+            CombiBuilderApp.combiBuilderAppMainMethod();
         }
     }
-
-
 }
