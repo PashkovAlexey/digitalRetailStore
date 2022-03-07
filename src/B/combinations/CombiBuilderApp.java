@@ -19,6 +19,8 @@ public abstract class CombiBuilderApp implements CombiMathMethods{
         printOfAllPurchases(prodCombiList);
         int sumWoDiscount = printSumWoDiscount(prodCombiList);
         CombiMathMethods.printSumWithDiscount(prodCombiList,sumWoDiscount);
+        DataBase db1 = DataBase.getInstance();
+        db1.readDataFromDB();
     }
 
     private static void printOfAllPurchases(List<Combi> prodCombiList) {
