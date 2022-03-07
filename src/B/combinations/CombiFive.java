@@ -1,11 +1,5 @@
 package B.combinations;
 
-import B.CocaCola.CocaColaBig;
-import B.CocaCola.CocaColaMiddle;
-import B.CocaCola.CocaColaSmall;
-import B.Pitza.PitzaBig;
-import B.Pitza.PitzaMiddle;
-import B.Pitza.PitzaSmall;
 import B.model.Big;
 import B.model.Middle;
 import B.model.Size;
@@ -14,7 +8,7 @@ import B.model.Small;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CombiFive extends Combi implements Builder {
+public class CombiFive extends Combi implements Builder, PitzaColaCreation {
 
     private List<Size> cocaCola = null;
     private List<Size> pitza = null;
@@ -35,44 +29,26 @@ public class CombiFive extends Combi implements Builder {
     @Override
     public void buildCola() {
         cocaCola = new ArrayList<>();
-        Small smallCola = new CocaColaSmall(0, "", "");
-        smallCola.setSmallPrice();
-        smallCola.setSmallDecription();
-        smallCola.setSmallProdTypeName();
+        Small smallCola = PitzaColaCreation.smallColaCreation();
         cocaCola.add(smallCola);
         cocaCola.add(smallCola);
-        Middle middleCola = new CocaColaMiddle(0,"", "");
-        middleCola.setMiddlePrice();
-        middleCola.setMiddleDecription();
-        middleCola.setMiddleProdTypeName();
+        Middle middleCola = PitzaColaCreation.middleColaCreation();
         cocaCola.add(middleCola);
         cocaCola.add(middleCola);
-        Big bigCola = new CocaColaBig(0, "", "");
-        bigCola.setBigPrice();
-        bigCola.setBigDecription();
-        bigCola.setBigProdTypeName();
+        Big bigCola = PitzaColaCreation.bigColaCreation();
         cocaCola.add(bigCola);
     }
 
     @Override
     public void buildPitza() {
         pitza = new ArrayList<>();
-        Small smallPitza = new PitzaSmall(0,"","");
-        smallPitza.setSmallPrice();
-        smallPitza.setSmallDecription();
-        smallPitza.setSmallProdTypeName();
+        Small smallPitza = PitzaColaCreation.smallPitzaCreation();
         pitza.add(smallPitza);
         pitza.add(smallPitza);
-        Middle middlePitza = new PitzaMiddle(0,"","");
-        middlePitza.setMiddlePrice();
-        middlePitza.setMiddleDecription();
-        middlePitza.setMiddleProdTypeName();
+        Middle middlePitza = PitzaColaCreation.middlePitzaCreation();
         pitza.add(middlePitza);
         pitza.add(middlePitza);
-        Big bigPitza = new PitzaBig(0,"","");
-        bigPitza.setBigPrice();
-        bigPitza.setBigDecription();
-        bigPitza.setBigProdTypeName();
+        Big bigPitza = PitzaColaCreation.bigPitzaCreation();
         pitza.add(bigPitza);
     }
 
