@@ -12,8 +12,7 @@ public class CombiFive extends Combi implements Builder, PitzaColaCreation {
 
     private List<Size> cocaCola = null;
     private List<Size> pitza = null;
-
-     private double combiDiscount = 0;
+    private double combiDiscount = 0;
 
     public CombiFive(List<Size> cocaCola, List<Size> pitza, double combiDiscount) {
         super(cocaCola, pitza, combiDiscount);
