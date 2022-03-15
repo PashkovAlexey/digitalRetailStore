@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public abstract class Bcjm {
 
-    public static void bCJMStart() {
+    public static void bCJMStart() throws InterruptedException {
         printInfo();
         Scanner sc = new Scanner(System.in);
         int prodChoice = sc.nextInt();
@@ -20,7 +20,7 @@ public abstract class Bcjm {
         System.out.println("любая цифра - выйти в главное меню");
     }
 
-    private static void choiceProcess(int prodChoice) {
+    private static void choiceProcess(int prodChoice) throws InterruptedException {
         if (prodChoice == 1) {
             ProductFactoryApp.ProductFactoryAppMainMethod();
         } else if (prodChoice == 2) {
