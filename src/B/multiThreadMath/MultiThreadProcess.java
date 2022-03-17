@@ -10,7 +10,26 @@ public abstract class MultiThreadProcess {
     public static void MultiThreadMainMethod(List<Combi> prodCombiList) throws InterruptedException {
         System.out.println("Первый расчет суммы покупки через два потока с наследованием от класса Thread");
         multiThreadClassExtentionMethod(prodCombiList);
+        multiThreadRunnableInterfaceMethod(prodCombiList);
+        // сюда писать третий процесс работы с блокированным run двумя потоками
+    }
 
+    private static void multiThreadRunnableInterfaceMethod(List<Combi> prodCombiList) throws InterruptedException {
+        System.out.println(" ");
+        System.out.println("Второй расчет через два потока с имплементацией интерфейса Runnable");
+        AverageCalcCombi averCalcCombi = new AverageCalcCombi(prodCombiList);
+        Thread threadAverCost = new Thread(averCalcCombi);
+        threadAverCost.start();
+
+        ProductAmountCalc prodAmountCalc = new ProductAmountCalc(prodCombiList);
+        Thread threadProdAmount = new Thread(prodAmountCalc);
+        threadProdAmount.start();
+
+        threadAverCost.join();
+        threadProdAmount.join();
+        System.out.println("Количество комби наборов в заказе составляет " + prodCombiList.size() + " штук");
+        System.out.println("Средняя стоимость набора комби составляет в заказе " + averCalcCombi.getAverageCombiCost() + " рублей");
+        System.out.println("Количество товаров в заказе составляет " + prodAmountCalc.getProductAmount() + " штук");
     }
 
     private static void multiThreadClassExtentionMethod(List<Combi> prodCombiList) throws InterruptedException {
