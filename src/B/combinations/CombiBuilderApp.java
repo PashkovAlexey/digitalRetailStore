@@ -2,9 +2,7 @@ package B.combinations;
 
 import B.CJM.ChooseMethods;
 import B.model.Size;
-import B.multiThreadMath.AverageCalcCombi;
-import B.multiThreadMath.MultiThreadProcess;
-import B.multiThreadMath.ProductAmountCalc;
+import B.multiThreadMath.MultiThreadProcessMain;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +30,7 @@ public abstract class CombiBuilderApp implements CombiMathMethods{
     private static void multiThreadMath(List<Combi> prodCombiList) throws InterruptedException {
         System.out.println(" ");
         System.out.println("Теперь произведем математические расчеты по ценам покупок через многопоточность");
-        MultiThreadProcess.MultiThreadMainMethod(prodCombiList);
+        MultiThreadProcessMain.MultiThreadMainMethod(prodCombiList);
 
     }
 
