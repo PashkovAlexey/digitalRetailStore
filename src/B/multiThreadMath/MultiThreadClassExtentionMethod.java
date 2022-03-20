@@ -1,19 +1,12 @@
 package B.multiThreadMath;
 
 import B.combinations.Combi;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class MultiThreadProcess {
+public abstract class MultiThreadClassExtentionMethod {
 
-    public static void MultiThreadMainMethod(List<Combi> prodCombiList) throws InterruptedException {
-        System.out.println("Первый расчет суммы покупки через два потока с наследованием от класса Thread");
-        multiThreadClassExtentionMethod(prodCombiList);
-
-    }
-
-    private static void multiThreadClassExtentionMethod(List<Combi> prodCombiList) throws InterruptedException {
+    public static void multiThreadClassExtentionMethod(List<Combi> prodCombiList) throws InterruptedException {
         System.out.println("Разобьем коллекцию продуктовых наборов на две отдельные коллекции, потом двумя потоками посчитаем");
         double[] threadSums = fourThreadsCreation(prodCombiList);
         sumCalculation(threadSums);
@@ -21,8 +14,8 @@ public abstract class MultiThreadProcess {
 
     private static void sumCalculation(double[] threadSums) {
         double sumAllProducts = 0;
-        for (int i = 0; i < threadSums.length; i++) {
-            sumAllProducts = sumAllProducts + threadSums[i];
+        for (double threadSum : threadSums) {
+            sumAllProducts = sumAllProducts + threadSum;
         }
         System.out.println("Сумма всех покупок составляет " + sumAllProducts + " рублей");
     }

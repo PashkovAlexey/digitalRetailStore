@@ -19,12 +19,13 @@ public class ThreadMathSum extends Thread {
     public void run() {
         sumOfPurchasesInThread = 0;
         for (int i = 0; i < prodCombiListForThread.size(); i++) {
-            Combi CombiInside = prodCombiListForThread.get(i);
-            List<Size> cocaListInside = CombiInside.getCocaCola();
-            summCreationPerTypeOfProduct(CombiInside, cocaListInside);
+            Combi combiInside = prodCombiListForThread.get(i);
+            List<Size> cocaListInside = combiInside.getCocaCola();
+            summCreationPerTypeOfProduct(combiInside, cocaListInside);
         }
         try {
-            Thread.sleep(5000);
+            System.out.println("Ждем 10 секунд, поток ThreadMathSum работает (наследование от Thread)");
+            Thread.sleep(10000);
         } catch (InterruptedException e) {
            System.out.println("Поймали ошибку InterruptedException");
         }
