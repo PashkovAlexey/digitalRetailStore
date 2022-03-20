@@ -15,9 +15,9 @@ private final CommonResource commonResource;
     @Override
     public void run() {
         synchronized (commonResource) {
-            double sumOfAll = 0;
+            commonResource.sumOfAll = 0;
             for (int i = 0; i < arrayList.size(); i++) {
-               sumOfAll = sumOfAll + arrayList.get(i).getPrice();;
+                commonResource.sumOfAll = commonResource.sumOfAll + arrayList.get(i).getPrice();;
             }
             try {
                 System.out.println("Ждем 5 секунд, поток CountThread с блокированным ресурсом работает, имплементация интерфейса Runnable");
@@ -25,7 +25,8 @@ private final CommonResource commonResource;
             } catch (InterruptedException e) {
                 System.out.println("Поймали ошибку InterruptedException");
             }
-            System.out.println("Стоимость товаров типа " + Thread.currentThread().getName() + " составляет " + sumOfAll + " рублей");
+            System.out.println("Стоимость товаров типа " + Thread.currentThread().getName() + " составляет " + commonResource.sumOfAll + " рублей");
+            System.out.println("Товар в количестве " + arrayList.size() + " штуки имеется на складе, возможно переходить к оплате");
         }
     }
 
